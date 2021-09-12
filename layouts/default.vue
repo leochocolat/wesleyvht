@@ -1,6 +1,12 @@
 <template>
     <div>
 
+        <div class="test">
+
+            Profile
+
+        </div>
+
     </div>
 </template>
 

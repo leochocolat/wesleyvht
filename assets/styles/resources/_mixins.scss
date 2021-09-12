@@ -1,0 +1,36 @@
+@function strip-unit($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+
+@function grid($columns, $total: $colums-amount-large) {
+    @return $columns / $total * 100%;
+}
+
+@function rem($value, $name: 'extra-small') {
+    @if map-has-key($sizes, $name) {
+        $viewportSize: map-get($sizes, $name);
+        @return #{strip-unit($value) / (strip-unit($viewportSize) / 100)}rem;
+    }
+
+    @else {
+        @warn 'Unfortunately, no value could retieved from `#{$name}`. Please make sure it is defined in the `$sizes` map.';
+    }
+    
+}
+
+@mixin antialised {
+    -webkit-font-smoothing: antialiased;
+    -khtml-font-smoothing: antialiased;
+    -apple-font-smoothing: antialiased;
+    font-smooth: always;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin not-antialised {
+    -webkit-font-smoothing: auto;
+    -khtml-font-smoothing: auto;
+    -apple-font-smoothing: auto;
+    font-smooth: auto;
+    -moz-osx-font-smoothing: grayscale;
+}
