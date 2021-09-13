@@ -1,6 +1,10 @@
 // Vendor
 import { mapGetters } from 'vuex';
 
+// Components
+import DebugMediaQueries from '@/components/DebugMediaQueries';
+import DebugGrid from '@/components/DebugGrid';
+
 export default {
     computed: {
         ...mapGetters({
@@ -21,7 +25,8 @@ export default {
     },
 
     components: {
-
+        DebugMediaQueries,
+        DebugGrid,
     },
 };
 

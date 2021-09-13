@@ -1,31 +1,8 @@
-.test {
-    font-size: 100px;
-
-    font-size: rem(82px);
-
-    background-color: red;
-
-    @include respond-to('small') {
-        font-size: rem(120px, 'small');
-
-        background-color: orange;
-    }
-
-    @include respond-to('medium') {
-        font-size: rem(132px, 'medium');
-
-        background-color: yellow;
-    }
-
-    @include respond-to('large') {
-        font-size: rem(160px, 'large');
-
-        background-color: blue;
-    }
-
-    @include respond-to('extra-large') {
-        font-size: rem(180px, 'extra-large');
-
-        background-color: green;
-    }
+.default {
+    * {
+        font-family: $font-primary, Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        line-height: 71%;
+        font-style: normal;
+    }   
 }

@@ -1,22 +1,22 @@
-@function strip-unit($number) {
-    @return $number / ($number * 0 + 1);
-}
-
-
-@function grid($columns, $total: $colums-amount-large) {
-    @return $columns / $total * 100%;
-}
-
-@function rem($value, $name: 'extra-small') {
-    @if map-has-key($sizes, $name) {
-        $viewportSize: map-get($sizes, $name);
-        @return #{strip-unit($value) / (strip-unit($viewportSize) / 100)}rem;
+@mixin respond-to($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
     }
 
     @else {
-        @warn 'Unfortunately, no value could retieved from `#{$name}`. Please make sure it is defined in the `$sizes` map.';
+        @warn 'Unfortunately, no value could retieved from `#{$name}`. Please make sure it is defined in the `$breakpoints` map.';
     }
-    
+}
+
+@mixin unselectable {
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
 }
 
 @mixin antialised {

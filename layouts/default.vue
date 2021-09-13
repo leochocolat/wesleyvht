@@ -1,11 +1,8 @@
 <template>
-    <div>
+    <div class="default">
 
-        <div class="test">
-
-            Profile
-
-        </div>
+        <DebugMediaQueries />
+        <DebugGrid />
 
     </div>
 </template>

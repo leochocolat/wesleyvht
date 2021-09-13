@@ -19,6 +19,7 @@ $viewport-width-medium: 1024px;
 $viewport-width-large: 1440px;
 $viewport-width-extra-large: 1920px;
 
+// Sizes
 $sizes: (
     'extra-small': $viewport-width-extra-small,
     'small': $viewport-width-small,
@@ -27,53 +28,80 @@ $sizes: (
     'extra-large': $viewport-width-extra-large,
 );
 
-// Columns
-$colums-amount-large: 24;
-$colums-amount-medium: 6;
-$colums-amount-small: 2;
-
 // Breakpoints
 $breakpoints: (
     'extra-small': (min-width: 0),
     'small': (min-width: 375px),
     'medium': (min-width: 768px),
-    'large': (min-width: 1024px),
-    'extra-large': (min-width: 1440px),
+    'large': (min-width: 1280px),
+    'extra-large': (min-width: 1920px),
 );
+
+// Columns
+$columns-amounts: (
+    'extra-small': 2,
+    'small': 6,
+    'medium': 16,
+    'large': 24,
+    'extra-large': 24,
+);
+
+$columns-margins: (
+    'extra-small': 20px,
+    'small': 20px,
+    'medium': 30px,
+    'large': 30px,
+    'extra-large': 30px,
+);
+
+$columns-gutters: (
+    'extra-small': 24px,
+    'small': 24px,
+    'medium': 24px,
+    'large': 24px,
+    'extra-large': 24px,
+);
+
+// Misc
+$columns-margin-extra-small: 20px;
+$columns-margin-small: 20px;
+$columns-margin-medium: 30px;
+$columns-margin-large: 30px;
+$columns-margin-extra-large: 30px;
 
 // Easings
 
-// Sin
+// sin
 $sine-in: cubic-bezier(0.12, 0, 0.39, 0);
 $sine-out: cubic-bezier(0.61, 1, 0.88, 1);
 $sine-in-out: cubic-bezier(0.37, 0, 0.63, 1);
 
-// Cubic
+// cubic
 $cubic-in: cubic-bezier(0.32, 0, 0.67, 0);
 $cubic-out: cubic-bezier(0.33, 1, 0.68, 1);
 $cubic-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-// Quad
+// quad
 $quad-in: cubic-bezier(0.11, 0, 0.5, 0);
 $quad-out: cubic-bezier(0.5, 1, 0.89, 1);
 $quad-in-out: cubic-bezier(0.45, 0, 0.55, 1);
 
-// Quart
+// quart
 $quart-in: cubic-bezier(0.5, 0, 0.75, 0);
 $quart-out: cubic-bezier(0.25, 1, 0.5, 1);
 $quart-in-out: cubic-bezier(0.76, 0, 0.24, 1);
 
-// Expo
+// expo
 $expo-in: cubic-bezier(0.7, 0, 0.84, 0);
 $expo-out: cubic-bezier(0.16, 1, 0.3, 1);
 $expo-in-out: cubic-bezier(0.87, 0, 0.13, 1);
 
-// Quint
+// quint
 $quint-in: cubic-bezier(0.64, 0, 0.78, 0);
 $quint-out: cubic-bezier(0.22, 1, 0.36, 1);
 $quint-in-out: cubic-bezier(0.83, 0, 0.17, 1);
 
-// Circ
+// circ
 $circ-in: cubic-bezier(0.55, 0, 1, 0.45);
 $circ-out: cubic-bezier(0, 0.55, 0.45, 1);
 $circ-in-out: cubic-bezier(0.85, 0, 0.15, 1);

@@ -22,7 +22,7 @@ class WindowResizeObserver extends EventDispatcher {
         this._setupEventListeners();
         this._updateDimensions();
         this._updateViewportDimensions();
-        this._updateCSSHeightVariable();
+        this._updateCSSVariables();
     }
 
     /**
@@ -89,8 +89,10 @@ class WindowResizeObserver extends EventDispatcher {
         this._viewportHeight = window.innerHeight;
     }
 
-    _updateCSSHeightVariable() {
+    _updateCSSVariables() {
         document.documentElement.style.setProperty('--vh', `${this._viewportHeight * 0.01}px`);
+        document.documentElement.style.setProperty('--vw', `${this._width * 0.01}px`);
+        document.documentElement.style.setProperty('--scrollbar-width', `${this._viewportWidth - this._width}px`);
     }
 
     _dispatchResizeEvent() {
@@ -105,7 +107,7 @@ class WindowResizeObserver extends EventDispatcher {
         this._debounceTimeout = setTimeout(() => {
             this._updateDimensions();
             this._updateViewportDimensions();
-            this._updateCSSHeightVariable();
+            this._updateCSSVariables();
             this._dispatchResizeEvent();
         }, DEBOUNCE_RATE);
     }

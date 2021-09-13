@@ -1,0 +1,84 @@
+.debug-grid {
+    opacity: 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+.container {
+    position: relative;
+
+    height: 100%;
+
+    overflow: hidden;
+    
+    margin-right: rem($columns-margin-extra-small, 'extra-small');
+    margin-left: rem($columns-margin-extra-small, 'extra-small');
+
+    white-space: nowrap;
+
+    @include respond-to('small') {
+        margin-right: rem($columns-margin-small, 'small');
+        margin-left: rem($columns-margin-small, 'small');
+    }
+
+    @include respond-to('medium') {
+        margin-right: rem($columns-margin-medium, 'medium');
+        margin-left: rem($columns-margin-medium, 'medium');
+    }
+
+    @include respond-to('large') {
+        margin-right: rem($columns-margin-large, 'large');
+        margin-left: rem($columns-margin-large, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        margin-right: rem($columns-margin-extra-large, 'extra-large');
+        margin-left: rem($columns-margin-extra-large, 'extra-large');
+    }
+}
+
+.col {
+    opacity: 0.1;
+
+    display: inline-block;
+    
+    width: size(1, 0, 'extra-small');
+
+    height: 100%;
+
+    margin-right: size(0, 1, 'extra-small');
+
+    background-color: black;
+
+    @include respond-to('small') {
+        width: size(1, 0, 'small');
+
+        margin-right: size(0, 1, 'small');
+    }
+    
+    @include respond-to('medium') {
+        width: size(1, 0, 'medium');
+
+        margin-right: size(0, 1, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: size(1, 0, 'large');
+
+        margin-right: size(0, 1, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        width: size(1, 0, 'extra-large');
+
+        margin-right: size(0, 1, 'extra-large');
+    }
+
+}
