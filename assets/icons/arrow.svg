@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.498039 0 0 0 0 0.498039 0 0 0 0 0.498039 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="arrow-down" transform="translate(-12.000000, -6.000000)" filter="url(#filter-1)">
+            <g transform="translate(18.026421, 11.799319) scale(1, -1) rotate(225.000000) translate(-18.026421, -11.799319) translate(9.826746, 3.599644)">
+                <polygon id="Path" fill="#000000" fill-rule="nonzero" transform="translate(8.199675, 8.199675) rotate(225.000000) translate(-8.199675, -8.199675) " points="2.4016292 13.3674762 12.476344 3.29326981 3.11792934 3.29292972 3.11792934 2.4016292 13.5520705 2.4016292 13.9977208 2.84727946 13.9977208 13.2814207 13.1064203 13.2814207 13.1065887 3.92351445 3.03187384 13.9977208"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

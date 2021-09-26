@@ -13,6 +13,10 @@
     }
 }
 
+@function letter-spacing($value, $font-size) {
+    @return #{strip-unit($value) / strip-unit($font-size)}em;
+}
+
 @function container-size($name: 'extra-small') {
     $viewport-size: map-get($sizes, $name);
     $columns-margin: map-get($columns-margins, $name);
@@ -32,4 +36,8 @@
     @else {
         @warn 'Unfortunately, no value could retieved from `#{$name}`. Please make sure it is defined in the `$sizes` map.';
     }
+}
+
+@function aspect-ratio($width, $height) {
+    @return #{strip-unit($height) / strip-unit($width) * 100%};
 }

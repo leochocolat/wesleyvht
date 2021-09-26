@@ -1,8 +1,37 @@
 .default {
-    * {
-        font-family: $font-primary, Arial, Helvetica, sans-serif;
-        font-weight: normal;
-        line-height: 71%;
-        font-style: normal;
-    }   
+    
+}
+
+* {
+    font-family: $font-primary, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    line-height: 71%;
+    font-style: normal;
+}
+
+.main-container {
+    width: auto;
+
+    margin-right: rem($columns-margin-extra-small, 'extra-small');
+    margin-left: rem($columns-margin-extra-small, 'extra-small');
+
+    @include respond-to('small') {
+        margin-right: rem($columns-margin-small, 'small');
+        margin-left: rem($columns-margin-small, 'small');
+    }
+
+    @include respond-to('medium') {
+        margin-right: rem($columns-margin-medium, 'medium');
+        margin-left: rem($columns-margin-medium, 'medium');
+    }
+
+    @include respond-to('large') {
+        margin-right: rem($columns-margin-large, 'large');
+        margin-left: rem($columns-margin-large, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        margin-right: rem($columns-margin-extra-large, 'extra-large');
+        margin-left: rem($columns-margin-extra-large, 'extra-large');
+    }
 }

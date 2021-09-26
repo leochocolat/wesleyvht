@@ -1,0 +1,179 @@
+.heading-1 {
+    font-size: rem(82px, 'extra-small');
+    line-height: rem(82px, 'extra-small');
+    letter-spacing: letter-spacing(-2.4px, 82px);
+
+    @include respond-to('small') {
+        font-size: rem(120px, 'small');
+        line-height: rem(120px, 'small');
+        letter-spacing: letter-spacing(-2.8px, 120px);
+    }
+
+    @include respond-to('medium') {
+        font-size: rem(132px, 'medium');
+        line-height: rem(132px, 'medium');
+        letter-spacing: letter-spacing(-3.2px, 132px);
+    }
+
+    @include respond-to('large') {
+        font-size: rem(160px, 'large');
+        line-height: rem(160px, 'large');
+        letter-spacing: letter-spacing(-4px, 160px);
+    }
+
+    @include respond-to('extra-large') {
+        font-size: rem(180px, 'extra-large');
+        line-height: rem(180px, 'extra-large');
+        letter-spacing: letter-spacing(-4px, 180px);
+    }
+}
+
+.heading-2 {
+    font-size: rem(56px, 'extra-small');
+    line-height: rem(56px, 'extra-small');
+    letter-spacing: letter-spacing(-1.12px, 56px);
+
+    @include respond-to('small') {
+        font-size: rem(82px, 'small');
+        line-height: rem(82px, 'small');
+        letter-spacing: letter-spacing(-2.4px, 82px);
+    }
+
+    @include respond-to('medium') {
+        font-size: rem(82px, 'medium');
+        line-height: rem(82px, 'medium');
+        letter-spacing: letter-spacing(-2.4px, 82px);
+    }
+
+    @include respond-to('large') {
+        font-size: rem(100px, 'large');
+        line-height: rem(100px, 'large');
+        letter-spacing: letter-spacing(-3.2px, 100px);
+    }
+
+    @include respond-to('extra-large') {
+        font-size: rem(112px, 'extra-large');
+        line-height: rem(112px, 'extra-large');
+        letter-spacing: letter-spacing(-3.2px, 112px);
+    }
+}
+
+.heading-3 {
+    font-size: rem(56px, 'extra-small');
+    line-height: rem(56px, 'extra-small');
+    letter-spacing: letter-spacing(-1.12px, 56px);
+
+    @include respond-to('small') {
+        font-size: rem(60px, 'small');
+        line-height: rem(60px, 'small');
+        letter-spacing: letter-spacing(-1.8px, 60px);
+    }
+    
+    @include respond-to('medium') {
+        font-size: rem(60px, 'medium');
+        line-height: rem(60px, 'medium');
+        letter-spacing: letter-spacing(-1.8px, 60px);
+    }
+    
+    @include respond-to('large') {
+        font-size: rem(80px, 'large');
+        line-height: rem(80px, 'large');
+        letter-spacing: letter-spacing(-2.4px, 80px);
+    }
+    
+    @include respond-to('extra-large') {
+        font-size: rem(80px, 'extra-large');
+        line-height: rem(80px, 'extra-large');
+        letter-spacing: letter-spacing(-2.4px, 80px);
+    }
+}
+
+.heading-6 {
+    font-size: rem(24px, 'extra-small');
+    line-height: rem(28px, 'extra-small');
+    letter-spacing: letter-spacing(-0.8px, 24px);
+
+    @include respond-to('small') {
+        font-size: rem(24px, 'small');
+        line-height: rem(28px, 'small');
+        letter-spacing: letter-spacing(-0.8px, 24px);
+    }
+    
+    @include respond-to('medium') {
+        font-size: rem(24px, 'medium');
+        line-height: rem(28px, 'medium');
+        letter-spacing: letter-spacing(-0.8px, 24px);
+    }
+    
+    @include respond-to('large') {
+        font-size: rem(24px, 'large');
+        line-height: rem(28px, 'large');
+        letter-spacing: letter-spacing(-0.8px, 24px);
+    }
+    
+    @include respond-to('extra-large') {
+        font-size: rem(28px, 'extra-large');
+        line-height: rem(32px, 'extra-large');
+        letter-spacing: letter-spacing(-1px, 28px);
+    }
+}
+
+.paragraph-1 {
+    font-size: rem(20px, 'extra-small');
+    line-height: rem(28px, 'extra-small');
+    letter-spacing: letter-spacing(-0.4px, 20px);
+
+    @include respond-to('small') {
+        font-size: rem(20px, 'small');
+        line-height: rem(28px, 'small');
+        letter-spacing: letter-spacing(-0.4px, 20px);
+    }
+    
+    @include respond-to('medium') {
+        font-size: rem(20px, 'medium');
+        line-height: rem(28px, 'medium');
+        letter-spacing: letter-spacing(-0.4px, 20px);
+    }
+    
+    @include respond-to('large') {
+        font-size: rem(20px, 'large');
+        line-height: rem(28px, 'large');
+        letter-spacing: letter-spacing(-0.4px, 20px);
+    }
+    
+    @include respond-to('extra-large') {
+        font-size: rem(22px, 'extra-large');
+        line-height: rem(28px, 'extra-large');
+        letter-spacing: letter-spacing(-0.4px, 22px);
+    }
+}
+
+.paragraph-2 {
+    font-size: rem(18px, 'extra-small');
+    line-height: rem(28px, 'extra-small');
+    letter-spacing: letter-spacing(-0.32px, 18px);
+
+    @include respond-to('small') {
+        font-size: rem(18px, 'small');
+        line-height: rem(28px, 'small');
+        letter-spacing: letter-spacing(-0.32px, 18px);
+    }
+
+    @include respond-to('medium') {
+        font-size: rem(18px, 'medium');
+        line-height: rem(28px, 'medium');
+        letter-spacing: letter-spacing(-0.32px, 18px);
+    }
+
+    @include respond-to('large') {
+        font-size: rem(18px, 'large');
+        line-height: rem(28px, 'large');
+        letter-spacing: letter-spacing(-0.32px, 18px);
+    }
+
+    @include respond-to('extra-large') {
+        font-size: rem(20px, 'extra-large');
+        line-height: rem(28px, 'extra-large');
+        letter-spacing: letter-spacing(-0.32px, 20px);
+    }
+}

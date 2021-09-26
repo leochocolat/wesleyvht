@@ -1,0 +1,19 @@
+.rich-text {
+    &::v-deep {
+
+        .button {
+            display: inline;
+
+            // border-bottom: solid 1px $color-black;
+        }
+
+        p {
+            margin-bottom: 1em;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}

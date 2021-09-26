@@ -1,7 +1,7 @@
 export default {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'Wesley van ’t Hart',
+        title: 'Wesley van’t Hart',
         htmlAttrs: {
             lang: 'en',
         },

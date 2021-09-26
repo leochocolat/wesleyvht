@@ -1,0 +1,25 @@
+.the-button-home {
+    font-weight: 500;
+    font-size: rem(24px, 'extra-small');
+    letter-spacing: rem(-0.69px, 'extra-small');
+    
+    @include respond-to('small') {
+        font-size: rem(24px, 'small');
+        letter-spacing: rem(-0.68px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        font-size: rem(24px, 'medium');       
+        letter-spacing: rem(-0.68px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        font-size: rem(24px, 'large');       
+        letter-spacing: rem(-0.68px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        font-size: rem(28px, 'extra-large');
+        letter-spacing: rem(-0.8px, 'extra-large');
+    }
+}

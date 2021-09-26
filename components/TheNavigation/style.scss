@@ -1,0 +1,262 @@
+.the-navigation {
+    position: absolute;
+    top: rem(20px, 'extra-small');
+    right: 0;
+    left: 0;
+
+    width: 100%;
+    
+    margin: auto;
+
+    @include respond-to('small') {
+        top: rem(20px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        top: rem(30px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        top: rem(30px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        top: rem(30px, 'extra-large');
+    }
+}
+
+.row {
+    display: flex;
+    position: relative;
+
+    width: 100%;
+}
+
+.col-button-home {
+    display: inline-block;
+    
+    @include respond-to('medium') {
+        width: size(8, 7, 'medium');
+        min-width: size(8, 7, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: size(10, 10, 'large');
+        min-width: size(10, 10, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        width: size(10, 10, 'extra-large');
+        min-width: size(10, 10, 'extra-large');
+    }
+}
+
+.col-buttons {
+    opacity: 0;
+    visibility: hidden;
+
+    display: inline-flex;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    align-items: flex-end;
+    
+    @include respond-to('medium') {
+        opacity: 1;
+        visibility: visible;
+        
+        position: initial;
+
+        width: size(6, 6, 'medium');
+        min-width: size(6, 6, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: size(11, 11, 'large');
+        min-width: size(11, 11, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        width: size(11, 11, 'extra-large');
+        min-width: size(11, 11, 'extra-large');
+    }
+}
+
+.button-container {
+    margin-right: rem(40px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-right: rem(40px, 'small');
+    }
+
+    @include respond-to('medium') {
+        margin-right: 0;
+    }
+
+    &:nth-child(1) {
+        @include respond-to('medium') {
+            width: rem(107px, 'medium');
+        }
+        
+        @include respond-to('large') {
+            width: rem(282px, 'large');
+        }
+        
+        @include respond-to('extra-large') {
+            width: rem(376px, 'extra-large');
+        }
+    }
+
+    &:nth-child(2) {
+        @include respond-to('medium') {
+            width: rem(115px, 'medium');
+        }
+        
+        @include respond-to('large') {
+            width: rem(185px, 'large');
+        }
+        
+
+        @include respond-to('extra-large') {
+            width: rem(257px, 'extra-large');
+        }
+    }
+
+    &:nth-child(3) {
+        @include respond-to('medium') {
+            width: rem(146px, 'medium');
+        }
+        
+        @include respond-to('large') {
+            width: rem(175px, 'large');
+        }
+        
+
+        @include respond-to('extra-large') {
+            width: rem(229px, 'extra-large');
+        }
+    }
+}
+
+.col-socials {
+    display: none;
+    
+    @include respond-to('medium') {
+        display: inline-flex;
+
+        align-items: flex-end;
+
+        width: size(2, 2, 'medium');
+        min-width: size(2, 2, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: size(3, 2, 'large');
+        min-width: size(3, 2, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: size(3, 2, 'extra-large');
+        min-width: size(3, 2, 'extra-large');
+    }
+}
+
+.social-container {
+    &:nth-child(1) {
+        @include respond-to('medium') {
+            width: rem(45px, 'medium');
+        }
+
+        @include respond-to('large') {
+            width: rem(45px, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: rem(45px, 'extra-large');
+        }
+    }
+
+    &:nth-child(2) {
+        @include respond-to('medium') {
+            width: rem(55px, 'medium');
+        }
+
+        @include respond-to('large') {
+            width: rem(55px, 'large');
+        }
+
+
+        @include respond-to('extra-large') {
+            width: rem(55px, 'extra-large');
+        }
+    }
+
+    &:nth-child(3) {
+        @include respond-to('medium') {
+            width: auto;
+        }
+
+        @include respond-to('large') {
+            width: rem(54px, 'large');
+        }
+
+
+        @include respond-to('extra-large') {
+            width: rem(56px, 'extra-large');
+        }
+    }
+}
+
+.button-social {
+    font-size: rem(18px, 'extra-small');
+    letter-spacing: rem(-0.32px, 'extra-small');
+
+    @include respond-to('small') {
+        font-size: rem(18px, 'small');
+        letter-spacing: rem(-0.32px, 'small');
+    }
+
+    @include respond-to('medium') {
+        font-size: rem(20px, 'medium');
+        letter-spacing: rem(-0.4px, 'medium');
+    }
+
+    @include respond-to('large') {
+        font-size: rem(20px, 'large');
+        letter-spacing: rem(-0.4px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        font-size: rem(20px, 'extra-large');
+        letter-spacing: rem(-0.4px, 'extra-large');
+    }
+}
+
+.col-button-toggle-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: rem(20px, 'extra-small');
+
+    @include respond-to('small') {
+        height: rem(20px, 'small');
+    }
+
+    @include respond-to('medium') {
+        display: none;
+    }
+}
+
+.button-toggle-navigation {
+    width: auto;
+    height: 100%;
+}
+
+.icon-toggle-navigation {
+    width: auto;
+    height: 100%;
+}
+

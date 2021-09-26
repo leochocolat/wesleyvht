@@ -17,4 +17,14 @@ export default (context, inject) => {
     const api = apiFactory(error, store, req, route, redirect);
 
     inject('api', api);
+
+    // Fetch data and dispatch to store
+    const promises = [
+        // Home
+        api.getEntryById('62rkfJeQ0bNSaiyxGQ7hHV'),
+    ];
+
+    return Promise.all(promises).then(([home]) => {
+        store.dispatch('data/setData', home);
+    });
 };

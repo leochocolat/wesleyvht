@@ -1,7 +1,7 @@
 <template>
     <div class="debug-grid">
 
-        <div class="container">
+        <div class="main-container container">
 
             <div v-for="(item, index) in 24" :key="index" class="col"></div>
 

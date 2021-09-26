@@ -1,8 +1,8 @@
 // Colors
 $color-white: #ffffff;
+$color-light-grey: #BFBFBF;
+$color-grey: #7F7F7F;
 $color-black: #000000;
-$color-light-grey: #BBBAB2;
-$color-grey: #3E3D36;
 
 // Fonts
 $font-primary: 'NB International';
@@ -19,7 +19,6 @@ $viewport-width-medium: 1024px;
 $viewport-width-large: 1440px;
 $viewport-width-extra-large: 1920px;
 
-// Sizes
 $sizes: (
     'extra-small': $viewport-width-extra-small,
     'small': $viewport-width-small,
@@ -31,8 +30,8 @@ $sizes: (
 // Breakpoints
 $breakpoints: (
     'extra-small': (min-width: 0),
-    'small': (min-width: 375px),
-    'medium': (min-width: 768px),
+    'small': (min-width: 768px),
+    'medium': (min-width: 1024px),
     'large': (min-width: 1280px),
     'extra-large': (min-width: 1920px),
 );

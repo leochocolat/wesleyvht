@@ -18,30 +18,7 @@
 
     overflow: hidden;
     
-    margin-right: rem($columns-margin-extra-small, 'extra-small');
-    margin-left: rem($columns-margin-extra-small, 'extra-small');
-
     white-space: nowrap;
-
-    @include respond-to('small') {
-        margin-right: rem($columns-margin-small, 'small');
-        margin-left: rem($columns-margin-small, 'small');
-    }
-
-    @include respond-to('medium') {
-        margin-right: rem($columns-margin-medium, 'medium');
-        margin-left: rem($columns-margin-medium, 'medium');
-    }
-
-    @include respond-to('large') {
-        margin-right: rem($columns-margin-large, 'large');
-        margin-left: rem($columns-margin-large, 'large');
-    }
-
-    @include respond-to('extra-large') {
-        margin-right: rem($columns-margin-extra-large, 'extra-large');
-        margin-left: rem($columns-margin-extra-large, 'extra-large');
-    }
 }
 
 .col {

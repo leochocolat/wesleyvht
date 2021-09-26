@@ -4,11 +4,13 @@ import { mapGetters } from 'vuex';
 // Components
 import DebugMediaQueries from '@/components/DebugMediaQueries';
 import DebugGrid from '@/components/DebugGrid';
+import TheNavigation from '@/components/TheNavigation';
+import TheFooter from '@/components/TheFooter';
 
 export default {
     computed: {
         ...mapGetters({
-
+            data: 'data/data',
         }),
     },
 
@@ -27,6 +29,8 @@ export default {
     components: {
         DebugMediaQueries,
         DebugGrid,
+        TheNavigation,
+        TheFooter,
     },
 };
 
