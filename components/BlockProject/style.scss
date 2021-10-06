@@ -1,6 +1,4 @@
-.block-project {
-
-}
+.block-project {}
 
 .row {
     display: flex;
@@ -13,6 +11,7 @@
     }
 }
 
+// Col Left
 .col-left {
     width: 100%;
 
@@ -49,7 +48,214 @@
     }
 }
 
+.project-subtitle {
+    color: $color-grey;
+}
+
+.introduction {
+    display: block;
+
+    @include respond-to('medium') {
+        display: flex;
+    }
+
+    @include respond-to('large') {
+        display: block;
+    }
+}
+
+.titles {
+    width: 100%;
+    
+    @include respond-to('medium') {
+        width: size(7, 7, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: 100%;
+    }
+}
+
+.project-description {
+    width: 100%;
+
+    margin-top: rem(20px, 'extra-small');
+    margin-bottom: rem(20px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-top: rem(20px, 'small');
+        margin-bottom: rem(20px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        width: size(9, 8, 'medium');
+
+        margin-top: 0;
+        margin-bottom: rem(30px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: 100%;
+
+        margin-top: rem(20px, 'large');
+        margin-bottom: rem(30px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-top: rem(20px, 'extra-large');
+        margin-bottom: rem(40px, 'extra-large');
+    }
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to('large') {
+        flex-direction: column-reverse;
+    }
+}
+
+.navigation {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: rem(30px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(30px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        width: size(9, 8, 'medium');
+        
+        margin-bottom: rem(30px, 'medium');
+        margin-left: size(7, 7, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: 100%;
+
+        margin-top: rem(40px, 'large');
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+    
+    @include respond-to('extra-large') {
+        margin-top: rem(40px, 'extra-large');
+    }
+}
+
+.list {
+    border-top: solid 1px $color-black;
+}
+
+.list-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    @include respond-to('small') {
+        justify-content: flex-start;
+    }
+
+    &:not(:first-child) {
+        border-top: solid 1px $color-light-grey;
+    }
+}
+
+.list-item-title {
+    width: 100%;
+
+    padding-top: rem(6px, 'extra-small');
+    padding-bottom: rem(6px, 'extra-small');
+
+    @include respond-to('small') {
+        width: size(3, 3, 'small');
+
+        padding-top: rem(6px, 'small');
+        padding-bottom: rem(6px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        width: size(7, 7, 'medium');
+
+        padding-top: rem(6px, 'medium');
+        padding-bottom: rem(6px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: size(3, 3, 'large');
+
+        padding-top: rem(6px, 'large');
+        padding-bottom: rem(6px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        width: size(3, 3, 'extra-large');
+
+        padding-top: rem(6px, 'extra-large');
+        padding-bottom: rem(6px, 'extra-large');
+    }
+}
+
+.sublist {
+    width: 100%;
+
+    @include respond-to('small') {
+        width: size(3, 2, 'small');
+    }
+
+    @include respond-to('medium') {
+        width: size(9, 8, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: size(5, 4, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        width: size(4, 3, 'extra-large');
+    }
+}
+
+.sublist-item {
+    padding-top: rem(6px, 'extra-small');
+    padding-bottom: rem(6px, 'extra-small');
+
+    @include respond-to('small') {
+        padding-top: rem(6px, 'small');
+        padding-bottom: rem(6px, 'small');
+    }
+
+    @include respond-to('medium') {
+        padding-top: rem(6px, 'medium');
+        padding-bottom: rem(6px, 'medium');
+    }
+
+    @include respond-to('large') {
+        padding-top: rem(6px, 'large');
+        padding-bottom: rem(6px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        padding-top: rem(6px, 'extra-large');
+        padding-bottom: rem(6px, 'extra-large');
+    }
+
+    &:not(:first-child) {
+        border-top: solid 1px $color-light-grey;
+    }
+}
+
+// Col Right
 .col-right {
+    position: relative;
+
     width: 100%;
     
     @include respond-to('large') {
@@ -76,4 +282,47 @@
     @include respond-to('extra-large') {
         padding-bottom: aspect-ratio(1075px, 1120px);
     }
+}
+
+// Media Gallery
+.media-gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.buttons {
+    display: flex;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.button-left {
+    opacity: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background-color: red;
+
+    cursor: w-resize;
+}
+
+.button-right {
+    opacity: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background-color: blue;
+
+    cursor: e-resize;
 }

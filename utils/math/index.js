@@ -1,4 +1,5 @@
 import clamp from './clamp';
+import modulo from './modulo';
 import lerp from './lerp';
 import hermite from './hermite';
 import distance from './distance';
@@ -8,6 +9,7 @@ import randomInt from './randomInt';
 
 export default {
     clamp,
+    modulo,
     lerp,
     hermite,
     distance,

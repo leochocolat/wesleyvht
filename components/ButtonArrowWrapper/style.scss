@@ -6,10 +6,37 @@
 
     svg {
         position: absolute;
+        top: 0;
         right: 0;
         bottom: 0;
 
-        width: auto;
-        height: 100%;
+        width: rem(13px, 'extra-small');
+        height: rem(13px, 'extra-small');
+
+        margin: auto;
+
+        * {
+            fill: $color-grey;
+        }
+
+        @include respond-to('small') {
+            width: rem(13px, 'small');
+            height: rem(13px, 'small');
+        }
+        
+        @include respond-to('medium') {
+            width: rem(13px, 'medium');
+            height: rem(13px, 'medium');
+        }
+        
+        @include respond-to('large') {
+            width: rem(13px, 'large');
+            height: rem(13px, 'large');
+        }
+        
+        @include respond-to('extra-large') {
+            width: rem(13px, 'extra-large');
+            height: rem(13px, 'extra-large');
+        }
     }
 }

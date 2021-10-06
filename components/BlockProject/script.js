@@ -1,13 +1,25 @@
 // Mixins
 import utils from '@/mixins/utils';
 
+// Utils
+import math from '@/utils/math';
+
 // Components
+import MediaGallery from '@/components/MediaGallery';
 import ButtonArrowWrapper from '@/components/ButtonArrowWrapper';
+import ButtonToggle from '@/components/ButtonToggle';
 
 export default {
     props: ['data'],
 
     mixins: [utils],
+
+    data() {
+        return {
+            isOpen: false,
+            currentIndex: 0,
+        };
+    },
 
     computed: {
         // Merge credits and live website url
@@ -49,7 +61,32 @@ export default {
         },
     },
 
+    watch: {
+        isOpen(isOpen) {
+            // Do some shit
+        },
+    },
+
+    methods: {
+        /**
+         * Private
+         */
+        toggleClickHandler() {
+            this.isOpen = !this.isOpen;
+        },
+
+        clickNextHandler() {
+            this.currentIndex = math.modulo(this.currentIndex + 1, this.data.medias.length);
+        },
+
+        clickPreviousHandler() {
+            this.currentIndex = math.modulo(this.currentIndex - 1, this.data.medias.length);
+        },
+    },
+
     components: {
+        MediaGallery,
         ButtonArrowWrapper,
+        ButtonToggle,
     },
 };

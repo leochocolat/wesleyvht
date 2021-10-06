@@ -1,0 +1,34 @@
+.button-toggle {
+    position: relative;
+
+    font-size: 0;
+}
+
+.svg {
+    width: rem(24px, 'extra-small');
+    height: rem(24px, 'extra-small');
+
+    @include respond-to('small') {
+        width: rem(24px, 'small');
+        height: rem(24px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        width: rem(24px, 'medium');
+        height: rem(24px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        width: rem(24px, 'large');
+        height: rem(24px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        width: rem(24px, 'extra-large');
+        height: rem(24px, 'extra-large');
+    }
+}
+
+.group-close {
+    opacity: 0;
+}

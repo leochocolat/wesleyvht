@@ -3,61 +3,103 @@
 
         <div class="row">
 
+            <!-- Col Content -->
             <div class="col-left">
 
                 <div class="content">
 
-                    <h6 class="heading-6 project-title">
-                        {{ data.name }}
-                    </h6>
+                    <!-- Introduction -->
+                    <div class="introduction">
 
-                    <p class="paragraph-1 project-subtitle">
-                        {{ data.tag.fields.name }}
-                    </p>
+                        <div class="titles">
 
-                    <RichText :document="data.description" class="paragraph-2 project-description" />
+                            <h6 class="heading-6 project-title">
+                                {{ data.name }}
+                            </h6>
 
-                    <ul class="list">
+                            <p class="paragraph-1 project-subtitle">
+                                {{ data.tag.fields.name }}
+                            </p>
 
-                        <li v-for="(item, index) in listItems" :key="index" class="list-item">
+                        </div>
 
-                            <div class="paragraph-2 list-item-title">
-                                {{ item.title }}
+                        <RichText :document="data.description" class="paragraph-2 project-description" />
+
+                    </div>
+
+                    <div class="list-container">
+
+                        <!-- Navigation -->
+                        <div class="navigation">
+
+                            <ButtonToggle :is-open="isOpen" @click.native="toggleClickHandler" />
+
+                            <div class="indicator paragraph-2">
+
+                                ({{ currentIndex + 1 }}-{{ data.medias.length }})
+
                             </div>
 
-                            <ul class="sublist">
+                        </div>
 
-                                <li v-for="(subItem, subIndex) in item.items" :key="`sublist-${subIndex}`" class="sublist-item">
+                        <!-- List -->
+                        <ul class="list">
 
-                                    <ButtonArrowWrapper>
+                            <li v-for="(item, index) in listItems" :key="index" class="list-item">
 
-                                        <a v-if="subItem.url" class="button paragraph-2" :href="subItem.url" target="_blank" rel="noopener noreferrer">
+                                <div class="paragraph-2 list-item-title">
+                                    {{ item.title }}
+                                </div>
+
+                                <ul class="sublist">
+
+                                    <li v-for="(subItem, subIndex) in item.items" :key="`sublist-${subIndex}`" class="sublist-item">
+
+                                        <ButtonArrowWrapper v-if="subItem.url && subItem.url !== ''">
+
+                                            <a v-if="subItem.url" class="button paragraph-2" :href="subItem.url" target="_blank" rel="noopener noreferrer">
+                                                {{ subItem.label }}
+                                            </a>
+
+                                        </ButtonArrowWrapper>
+
+                                        <p v-else class="paragraph-2">
                                             {{ subItem.label }}
-                                        </a>
+                                        </p>
 
-                                    </ButtonArrowWrapper>
+                                    </li>
 
-                                </li>
+                                </ul>
 
-                            </ul>
+                            </li>
 
-                        </li>
+                        </ul>
 
-                    </ul>
+                    </div>
 
                 </div>
 
             </div>
 
+            <!-- Col Image -->
             <div class="col-right">
 
-                <div class="image-container"></div>
+                <div class="image-container">
+
+                    <MediaGallery :index="currentIndex" />
+
+                    <div class="buttons">
+
+                        <div class="button-left" @click="clickPreviousHandler"></div>
+                        <div class="button-right" @click="clickNextHandler"></div>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
-
-        <!-- {{ data.name }} -->
 
     </div>
 </template>
