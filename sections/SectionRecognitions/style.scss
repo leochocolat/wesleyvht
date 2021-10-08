@@ -1,0 +1,340 @@
+.section-recognition {
+    padding-bottom: rem(50px, 'extra-small');
+    
+    @include respond-to('small') {
+        padding-bottom: rem(60px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        padding-bottom: rem(60px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        padding-bottom: rem(60px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        padding-bottom: rem(80px, 'extra-large');
+    }
+}
+
+.heading {
+    margin-bottom: rem(40px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(50px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(50px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        margin-bottom: rem(50px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-bottom: rem(60px, 'extra-large');
+    }
+}
+
+.list-labels {
+    display: none;
+
+    border-bottom: solid 1px $color-black;
+
+    @include respond-to('small') {
+        display: flex;
+
+        padding-bottom: rem(12px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        padding-bottom: rem(12px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        padding-bottom: rem(20px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        padding-bottom: rem(20px, 'extra-large');
+    }
+}
+
+.label {
+    color: $color-grey;
+
+    &:nth-child(1) {        
+        @include respond-to('small') {
+            width: size(2, 2, 'small');
+        }
+        
+        @include respond-to('medium') {
+            width: size(3, 3, 'medium');
+        }
+        
+        @include respond-to('large') {
+            width: size(6, 6, 'large');
+        }
+        
+        @include respond-to('extra-large') {
+            width: size(6, 6, 'extra-large');
+        }
+    }
+
+    &:nth-child(2) {
+        @include respond-to('small') {
+            width: size(2, 2, 'small');
+        }
+
+        @include respond-to('medium') {
+            width: size(5, 5, 'medium');
+        }
+
+        @include respond-to('large') {
+            width: size(6, 6, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: size(6, 6, 'extra-large');
+        }
+    }
+
+    &:nth-child(3) {
+        @include respond-to('small') {
+            width: size(1, 1, 'small');
+        }   
+
+        @include respond-to('medium') {
+            width: size(5, 5, 'medium');
+        }
+
+        @include respond-to('large') {
+            width: size(6, 6, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: size(6, 6, 'extra-large');
+        }
+    }
+
+    &:nth-child(4) {
+        @include respond-to('small') {
+            width: size(1, 0, 'small');
+
+            text-align: right;
+        }
+
+        @include respond-to('medium') {
+            width: size(3, 2, 'medium');
+
+            text-align: left;
+        }
+
+        @include respond-to('large') {
+            width: size(6, 5, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: size(6, 5, 'extra-large');
+        }
+    }
+}
+
+.recognition-type-list-item {
+    display: block;
+
+    margin-bottom: rem(40px, 'extra-small');
+
+    border-bottom: solid 1px $color-light-grey;
+
+    @include respond-to('small') {
+        display: flex;
+
+        margin-bottom: rem(40px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(60px, 'medium');
+    }   
+    
+    @include respond-to('large') {
+        margin-bottom: rem(60px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-bottom: rem(60px, 'extra-large');
+    }
+}
+
+.recognition-type-name {
+    padding-top: rem(6px, 'extra-small');
+    padding-bottom: rem(6px, 'extra-small');
+
+    border-top: solid 1px $color-black;
+    border-bottom: solid 1px $color-light-grey;
+
+    @include respond-to('small') {
+        width: size(2, 2, 'small');
+
+        padding-top: rem(6px, 'small');
+        padding-bottom: rem(6px, 'small');
+
+        border-top: none;
+        border-bottom: none;
+    }
+
+    @include respond-to('medium') {
+        width: size(3, 3, 'medium');
+
+        padding-top: rem(6px, 'medium');
+        padding-bottom: rem(6px, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: size(6, 6, 'large');
+
+        padding-top: rem(6px, 'large');
+        padding-bottom: rem(6px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: size(6, 6, 'extra-large');
+
+        padding-top: rem(6px, 'extra-large');
+        padding-bottom: rem(6px, 'extra-large');
+    }
+}
+
+.recognition-list {
+    @include respond-to('small') {
+        width: size(4, 3, 'small');
+    }
+
+    @include respond-to('medium') {
+        width: size(13, 12, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: size(18, 17, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: size(18, 17, 'extra-large');
+    }
+}
+
+.recognition-list-item {
+    &:not(:last-child) {
+        border-bottom: solid 1px $color-light-grey;
+    }
+}
+
+.button-arrow {
+    &::v-deep {
+        svg {
+            display: none;
+
+            @include respond-to('medium') {
+                display: block;
+            }
+        }
+    }
+}
+
+.recognition {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: rem(6px, 'extra-small');
+    padding-bottom: rem(6px, 'extra-small');
+
+    @include respond-to('small') {
+        justify-content: flex-start;
+
+        padding-top: rem(6px, 'small');
+        padding-bottom: rem(6px, 'small');
+    }
+
+    @include respond-to('medium') {
+        padding-top: rem(6px, 'medium');
+        padding-bottom: rem(6px, 'medium');
+    }
+
+    @include respond-to('large') {
+        padding-top: rem(6px, 'large');
+        padding-bottom: rem(6px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        padding-top: rem(6px, 'extra-large');
+        padding-bottom: rem(6px, 'extra-large');
+    }
+}
+
+.recognition-col {
+    &:nth-child(1) {
+        @include respond-to('small') {
+            width: size(2, 2, 'small');
+        }
+
+        @include respond-to('medium') {
+            width: size(5, 5, 'medium');
+        }
+
+        @include respond-to('large') {
+            width: size(6, 6, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: size(6, 6, 'extra-large');
+        }
+    }
+
+    &:nth-child(2) {
+        @include respond-to('small') {
+            width: size(1, 1, 'small');
+        }
+
+        @include respond-to('medium') {
+            width: size(5, 5, 'medium');
+        }
+
+        @include respond-to('large') {
+            width: size(6, 6, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: size(6, 6, 'extra-large');
+        }
+    }
+
+    &:nth-child(3) {
+        display: none;
+        
+        @include respond-to('small') {
+            display: block;
+
+            width: size(1, 0, 'small');
+
+            text-align: right;
+        }
+
+        @include respond-to('medium') {
+            width: size(3, 2, 'medium');
+
+            text-align: left;
+        }
+
+        @include respond-to('large') {
+            width: size(6, 5, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: size(6, 5, 'extra-large');
+        }
+    }
+}
+

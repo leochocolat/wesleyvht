@@ -6,4 +6,13 @@ export default {
         { name: 'Profile', id: 'profile' },
         { name: 'Contact', id: 'contact' },
     ],
+
+    recognitions: {
+        labels: [
+            'Type',
+            'Recognition',
+            'Project',
+            'Year',
+        ],
+    },
 };
