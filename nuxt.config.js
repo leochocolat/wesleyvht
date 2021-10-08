@@ -45,8 +45,6 @@ export default {
     buildModules: [
         // Doc: https://github.com/nuxt-community/stylelint-module
         '@nuxtjs/stylelint-module',
-        // Doc: https://prismic.nuxtjs.org/
-        '@nuxtjs/prismic',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules

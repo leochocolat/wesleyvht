@@ -1,0 +1,134 @@
+.section-profile {
+    padding-top: rem(20px, 'extra-small');
+    padding-bottom: rem(50px, 'extra-small');
+    
+    @include respond-to('small') {
+        padding-top: rem(20px, 'small');
+        padding-bottom: rem(60px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        padding-top: rem(20px, 'medium');
+        padding-bottom: rem(60px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        padding-top: rem(20px, 'large');
+        padding-bottom: rem(60px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        padding-top: rem(20px, 'extra-large');
+        padding-bottom: rem(80px, 'extra-large');
+    }
+}
+
+.heading {
+    margin-bottom: rem(20px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(20px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(20px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        margin-bottom: rem(20px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-bottom: rem(20px, 'extra-large');
+    }
+}
+
+.row {
+    display: block;
+
+    @include respond-to('large') {
+        display: flex;
+
+        align-items: flex-end;
+    }
+}
+
+.col-image {
+    width: 100%;
+
+    margin-bottom: rem(30px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(30px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(30px, 'medium')
+    }
+
+    @include respond-to('large') {
+        width: size(12, 11, 'large');
+
+        margin-right: size(1, 2, 'large');
+        margin-bottom: 0;
+    }
+    
+    @include respond-to('extra-large') {
+        width: size(11, 10, 'extra-large');
+
+        margin-right: size(1, 2, 'extra-large');
+    }
+}
+
+.image-container {
+    width: 100%;
+    height: 0;
+
+    padding-top: aspect-ratio(335, 399);
+
+    background-color: $color-light-grey;
+
+    @include respond-to('small') {
+        padding-top: aspect-ratio(728, 866);
+    }
+    
+    @include respond-to('medium') {
+        padding-top: aspect-ratio(964, 1295);
+    }
+    
+    @include respond-to('large') {
+        padding-top: aspect-ratio(678, 1000);
+    }
+    
+    @include respond-to('extra-large') {
+        padding-top: aspect-ratio(840, 1189);
+    }
+}
+
+.col-text {
+    width: 100%;
+
+    @include respond-to('large') {
+        width: size(11, 10, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: size(12, 11, 'extra-large');
+    }
+}
+
+.text-container {
+    @include respond-to('small') {
+        columns: 2;
+        column-gap: size(0, 1, 'small');
+    }
+    
+    @include respond-to('medium') {
+        columns: 2;
+        column-gap: size(0, 1, 'medium');
+    }
+
+    @include respond-to('large') {
+        columns: initial;
+    }
+}

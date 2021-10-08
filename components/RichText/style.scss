@@ -3,12 +3,26 @@
 
         .button {
             display: inline;
-
-            // border-bottom: solid 1px $color-black;
         }
 
         p {
-            margin-bottom: 1em;
+            margin-bottom: rem(20px, 'extra-small');   
+
+            @include respond-to('small') {
+                margin-bottom: rem(30px, 'small');   
+            }
+            
+            @include respond-to('medium') {
+                margin-bottom: rem(30px, 'medium');
+            }
+            
+            @include respond-to('large') {
+                margin-bottom: rem(30px, 'large');
+            }
+            
+            @include respond-to('extra-large') {
+                margin-bottom: rem(30px, 'extra-large');
+            }
             
             &:last-child {
                 margin-bottom: 0;
