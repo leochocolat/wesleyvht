@@ -1,0 +1,217 @@
+.section-partners {
+    margin-bottom: rem(100px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(60px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(60px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        margin-bottom: rem(80px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-bottom: rem(80px, 'extra-large');
+    }
+}
+
+.row {
+    @include respond-to('medium') {
+        display: flex;
+
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.col-left {
+    margin-bottom: rem(20px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(20px, 'small');
+    }
+
+    @include respond-to('medium') {
+        width: size(8, 8, 'medium');
+
+        margin-bottom: 0;
+    }
+
+    @include respond-to('large') {
+        width: size(12, 12, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: size(12, 12, 'extra-large');
+    }
+}
+
+.title {
+    margin-bottom: rem(20px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(20px, 'small');
+    }
+
+    @include respond-to('medium') {
+        margin-bottom: 0;
+    }
+}
+
+.introduction {
+    margin-bottom: rem(40px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(50px, 'small');
+    }
+}
+
+.col-right {
+    @include respond-to('medium') {
+        width: size(8, 7, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: size(9, 8, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: size(9, 8, 'extra-large');
+    }
+}
+
+.lists-row {
+    @include respond-to('small') {
+        display: flex;
+    }
+}
+
+.list-container {
+    &:nth-child(1) {
+        margin-bottom: rem(40px, 'extra-small');
+    }
+
+    @include respond-to('small') {
+        &:nth-child(1) {
+            width: size(4, 4, 'small');
+
+            margin-bottom: 0;
+        }
+
+        &:nth-child(2) {
+            width: size(2, 1, 'small');
+        }
+    }
+
+    @include respond-to('medium') {
+        &:nth-child(1) {
+            width: size(4, 4, 'medium');
+        }
+
+        &:nth-child(2) {
+            width: size(4, 3, 'medium');
+        }
+    }
+
+    @include respond-to('large') {
+        &:nth-child(1) {
+            width: size(6, 6, 'large');
+        }
+
+        &:nth-child(2) {
+            width: size(3, 2, 'large');
+        }
+    }
+}
+
+.list-title {
+    margin-bottom: rem(20px, 'extra-small');
+    
+    @include respond-to('small') {
+        margin-bottom: rem(30px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(30px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        margin-bottom: rem(40px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-bottom: rem(40px, 'extra-large');
+    }
+}
+
+.list {
+    &.clients {
+        columns: 2;
+        column-gap: size(0, 1, 'extra-small');
+        column-width: size(1, 0, 'extra-small');
+
+        @include respond-to('small') {
+            column-gap: 0;
+            column-width: size(2, 2, 'small');
+        }
+
+        @include respond-to('medium') {
+            columns: initial;
+        }
+    }
+}
+
+.list-item {
+    position: relative;
+
+    margin-bottom: rem(8px, 'extra-small');
+
+    &:not(:last-child) {
+        @include respond-to('small') {
+            margin-bottom: rem(8px, 'small');
+        }
+
+        @include respond-to('medium') {
+            margin-bottom: rem(8px, 'medium');
+        }
+
+        @include respond-to('large') {
+            margin-bottom: rem(8px, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            margin-bottom: rem(8px, 'extra-large');
+        }
+    }
+
+    &.clients {
+        &:nth-child(5n) {
+            @include respond-to('medium') {
+                margin-bottom: rem(30px, 'medium');
+            }
+
+            @include respond-to('large') {
+                margin-bottom: rem(30px, 'large');
+            }
+
+            @include respond-to('extra-large') {
+                margin-bottom: rem(30px, 'extra-large');
+            }
+        }
+    }
+}
+
+.list-item-paragraph {
+    position: relative;
+}
+
+.label-current {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 8px);
+
+    color: $color-grey;
+}

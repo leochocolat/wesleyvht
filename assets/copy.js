@@ -15,4 +15,10 @@ export default {
             'Year',
         ],
     },
+
+    partners: {
+        clients: 'Clients',
+        agencies: 'Agencies',
+        current: '(Current)',
+    },
 };

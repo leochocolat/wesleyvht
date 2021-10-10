@@ -177,3 +177,29 @@
         letter-spacing: letter-spacing(-0.32px, 20px);
     }
 }
+
+.footnote {
+    font-size: rem(14px, 'extra-small');
+    line-height: rem(18px, 'extra-small');
+    letter-spacing: letter-spacing(-0.2px, 14px);
+
+    @include respond-to('small') {
+        font-size: rem(14px, 'small');
+        line-height: rem(18px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        font-size: rem(14px, 'medium');
+        line-height: rem(18px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        font-size: rem(14px, 'large');
+        line-height: rem(18px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        font-size: rem(14px, 'extra-large');
+        line-height: rem(18px, 'extra-large');
+    }
+}
