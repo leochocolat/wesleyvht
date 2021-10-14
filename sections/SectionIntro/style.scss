@@ -107,10 +107,12 @@
 
     @include respond-to('large') {
         width: size(14, 13, 'large');
+        min-width: size(14, 13, 'large');
     }
 
     @include respond-to('extra-large') {
         width: size(14, 13, 'extra-large');
+        min-width: size(14, 13, 'extra-large');
     }
 }
 

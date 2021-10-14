@@ -49,7 +49,7 @@ export default {
                 title: 'Live Website',
                 items: [
                     {
-                        label: this.data.shortURL || this.data.url,
+                        label: this.data.shortUrl || this.data.url,
                         url: this.data.url,
                     },
                 ],
