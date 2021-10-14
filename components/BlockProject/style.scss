@@ -44,7 +44,7 @@
     }
 
     @include respond-to('extra-large') {
-        width: size(8, 7, 'extra-large');
+        width: size(7, 6, 'extra-large');
     }
 }
 
