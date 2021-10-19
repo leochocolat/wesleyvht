@@ -1,6 +1,8 @@
 <template>
     <div class="media-gallery">
 
+        <Media :key="index" :data="medias[index]" />
+
     </div>
 </template>
 

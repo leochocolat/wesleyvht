@@ -86,7 +86,7 @@
 
                 <div class="image-container">
 
-                    <MediaGallery :index="currentIndex" />
+                    <MediaGallery :index="currentIndex" :medias="data.medias" />
 
                     <div class="buttons">
 

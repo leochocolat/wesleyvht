@@ -1,0 +1,16 @@
+.image-renderer {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.image-full {
+    opacity: 0;
+}
+
+.image-low {
+    filter: blur(10px);
+}

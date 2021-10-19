@@ -1,5 +1,8 @@
+// Components
+import Media from '@/components/Media';
+
 export default {
-    props: ['index'],
+    props: ['index', 'medias'],
 
     methods: {
         /**
@@ -9,5 +12,9 @@ export default {
         /**
          * Private
          */
+    },
+
+    components: {
+        Media,
     },
 };
