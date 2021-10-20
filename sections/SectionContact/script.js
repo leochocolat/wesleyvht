@@ -9,10 +9,6 @@ export default {
 
     mixins: [utils],
 
-    mounted() {
-        console.log(this.data);
-    },
-
     components: {
         ButtonArrowWrapper,
     },

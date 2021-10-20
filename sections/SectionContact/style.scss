@@ -1,5 +1,5 @@
 .section-contact {
-    margin-bottom: rem(160px, 'extra-small');
+    margin-bottom: rem(40px, 'extra-small');
 
     @include respond-to('small') {
         margin-bottom: rem(160px, 'small');
@@ -114,6 +114,18 @@
         &:last-child {
             width: size(8, 7, 'extra-large');
         }
+    }
+}
+
+.col-content {
+    @include respond-to('large') {
+        padding-bottom: rem(8px, 'large');
+
+        border-bottom: 1px solid $color-light-grey;
+    }
+
+    @include respond-to('extra-large') {
+        padding-bottom: rem(8px, 'extra-large');
     }
 }
 
