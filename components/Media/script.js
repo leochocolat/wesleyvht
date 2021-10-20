@@ -7,8 +7,4 @@ export default {
     components: {
         ImageRenderer,
     },
-
-    mounted() {
-        console.log(this.data);
-    },
 };

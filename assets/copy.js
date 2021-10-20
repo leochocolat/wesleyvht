@@ -21,4 +21,10 @@ export default {
         agencies: 'Agencies',
         current: '(Current)',
     },
+
+    contact: {
+        availability: 'Availability',
+        email: 'Mail',
+        socials: 'Socials',
+    },
 };

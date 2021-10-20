@@ -5,6 +5,11 @@
             display: inline;
         }
 
+        a {
+            color: $color-grey;
+            text-decoration: underline;
+        }
+
         p {
             margin-bottom: rem(20px, 'extra-small');   
 
