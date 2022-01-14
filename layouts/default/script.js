@@ -4,7 +4,9 @@ import { mapGetters } from 'vuex';
 // Components
 import DebugMediaQueries from '@/components/DebugMediaQueries';
 import DebugGrid from '@/components/DebugGrid';
+import ScrollContainer from '@/components/ScrollContainer';
 import TheNavigation from '@/components/TheNavigation';
+import TheNavigationScroll from '@/components/TheNavigationScroll';
 import TheFooter from '@/components/TheFooter';
 
 export default {
@@ -29,7 +31,9 @@ export default {
     components: {
         DebugMediaQueries,
         DebugGrid,
+        ScrollContainer,
         TheNavigation,
+        TheNavigationScroll,
         TheFooter,
     },
 };

@@ -8,16 +8,16 @@ html {
     --scrollbar-width: 0px;
 
     @include antialised();
+}
 
-    body {
-        overflow-y: scroll;
-    }
+body {
+    overflow-y: scroll;
+
+    background-color: $color-white;
 
     &.no-touch {
-        .body {
-            overscroll-behavior-y: none;
-            overscroll-behavior-block: none;
-        }
+        overscroll-behavior-y: none;
+        overscroll-behavior-block: none;
     }
 }
 

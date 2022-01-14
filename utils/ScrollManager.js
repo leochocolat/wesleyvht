@@ -1,5 +1,5 @@
 // Vendor
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
 // Utils
 import EventDispatcher from './EventDispatcher';
@@ -16,7 +16,7 @@ class ScrollManager extends EventDispatcher {
         // Options
         this._el = window;
         this._isSmooth = true;
-        this._damping = 0.1;
+        this._damping = 0.15;
 
         this._isEnabled = true;
 
@@ -137,6 +137,7 @@ class ScrollManager extends EventDispatcher {
         const integerDelta = Math.round(delta);
 
         this._smoothPosition = roundedPosition;
+        this._smoothPosition = Math.max(this._smoothPosition, 0);
         this._smoothDelta = roundedDelta;
 
         if (roundedDelta !== 0) {
@@ -173,7 +174,7 @@ class ScrollManager extends EventDispatcher {
 
         this._isScrolling = true;
 
-        const position = this._el.pageYOffset;
+        const position = Math.max(this._el.pageYOffset, 0);
         const delta = this._position - position;
 
         this._position = position;

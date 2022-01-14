@@ -2,13 +2,21 @@
     <div class="default">
 
         <!-- Navigation -->
-        <TheNavigation :data="data.fields.header.fields" />
+        <TheNavigationScroll :data="data.fields.header.fields" />
 
-        <!-- Router Views -->
-        <Nuxt />
+        <!-- Scroll Container -->
+        <ScrollContainer>
 
-        <!-- Footer -->
-        <TheFooter :data="data.fields.footer.fields" />
+            <!-- Navigation -->
+            <TheNavigation :data="data.fields.header.fields" />
+
+            <!-- Router Views -->
+            <Nuxt />
+
+            <!-- Footer -->
+            <TheFooter :data="data.fields.footer.fields" />
+
+        </ScrollContainer>
 
         <!-- Debug -->
         <DebugMediaQueries />
