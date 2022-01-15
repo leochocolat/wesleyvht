@@ -1,0 +1,123 @@
+.card-availability {
+    width: 100%;
+
+    padding: rem(20px, 'extra-small');
+
+    background-color: $color-light-grey-3;
+
+    border-radius: 12px;
+
+    @include respond-to('small') {
+        padding: rem(30px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        padding: rem(30px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        padding: rem(30px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        padding: rem(30px, 'extra-large');
+    }
+}
+
+.card-title {
+    display: block;
+
+    margin-bottom: rem(40px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(40px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(40px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        margin-bottom: rem(40px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-bottom: rem(40px, 'extra-large');
+    }
+}
+
+.credits {
+    margin-top: rem(42px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-top: rem(40px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-top: rem(60px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        margin-top: rem(176px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-top: rem(199px, 'extra-large');
+    }
+}
+
+.role {
+    display: block;
+
+    padding-top: rem(10px, 'extra-small');
+
+    color: $color-grey;
+
+    border-top: solid 1px $color-black;
+
+    @include respond-to('small') {
+        display: initial;
+
+        padding-top: 0;
+
+        color: $color-black;
+
+        border-top: none;
+    }
+}
+
+.separator {
+    display: none;
+
+    @include respond-to('small') {
+        display: initial;
+    }
+}
+
+.button-arrow-wrapper {
+    display: inline-block;
+
+    width: 100%;
+
+    @include respond-to('small') {
+        width: rem(137px, 'small');
+    }
+
+    @include respond-to('medium') {
+        width: rem(137px, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: rem(140px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: rem(150px, 'extra-large');
+    }
+
+    &::v-deep {
+        .arrow-container {
+            background-color: $color-light-grey-2;
+        }
+    }
+}

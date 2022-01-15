@@ -14,7 +14,7 @@
             <Nuxt />
 
             <!-- Footer -->
-            <TheFooter :data="data.fields.footer.fields" />
+            <!-- <TheFooter :data="data.fields.footer.fields" /> -->
 
         </ScrollContainer>
 

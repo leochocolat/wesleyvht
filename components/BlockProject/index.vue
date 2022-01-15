@@ -57,7 +57,7 @@
 
                                         <ButtonArrowWrapper v-if="subItem.url && subItem.url !== ''">
 
-                                            <a v-if="subItem.url" class="button paragraph-2" :href="subItem.url" target="_blank" rel="noopener noreferrer">
+                                            <a v-if="subItem.url" class="button link paragraph-2" :href="subItem.url" target="_blank" rel="noopener noreferrer">
                                                 {{ subItem.label }}
                                             </a>
 

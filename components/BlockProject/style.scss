@@ -224,6 +224,8 @@
 }
 
 .sublist-item {
+    box-sizing: border-box;
+
     padding-top: rem(6px, 'extra-small');
     padding-bottom: rem(6px, 'extra-small');
 
@@ -249,6 +251,30 @@
 
     &:not(:first-child) {
         border-top: solid 1px $color-light-grey;
+    }
+}
+
+.link {
+    width: 100%;
+
+    padding-right: rem(28px, 'extra-small');
+
+    box-sizing: border-box;
+
+    @include respond-to('small') {
+        padding-right: rem(28px, 'small');
+    }
+
+    @include respond-to('medium') {
+        padding-right: rem(28px, 'medium');
+    }
+
+    @include respond-to('large') {
+        padding-right: rem(28px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        padding-right: rem(28px, 'extra-large');
     }
 }
 

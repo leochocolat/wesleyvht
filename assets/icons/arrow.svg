@@ -1,8 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/Arrow Link</title>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="arrow-down" transform="translate(-12.000000, -6.000000)">
-            <g transform="translate(18.026421, 11.799319) scale(1, -1) rotate(225.000000) translate(-18.026421, -11.799319) translate(9.826746, 3.599644)">
-                <polygon id="Path" fill="#000000" fill-rule="nonzero" transform="translate(8.199675, 8.199675) rotate(225.000000) translate(-8.199675, -8.199675) " points="2.4016292 13.3674762 12.476344 3.29326981 3.11792934 3.29292972 3.11792934 2.4016292 13.5520705 2.4016292 13.9977208 2.84727946 13.9977208 13.2814207 13.1064203 13.2814207 13.1065887 3.92351445 3.03187384 13.9977208"></polygon>
+        <g id="Icons/Arrow-Circle-Light" transform="translate(-9.000000, -8.000000)" fill="#7F7F7F" fill-rule="nonzero">
+            <g id="Icons/Arrow-Link" transform="translate(9.151306, 8.957827)">
+                <path d="M0.845245127,1.77635684e-15 L10.6581082,0.00146046481 L10.6566477,9.81158864 L9.40664771,9.81140254 L9.407,1.911 L0.883883476,10.435737 L-2.66453526e-15,9.55185348 L8.301,1.25 L0.845059088,1.24999999 L0.845245127,1.77635684e-15 Z" id="Combined-Shape"></path>
             </g>
         </g>
     </g>

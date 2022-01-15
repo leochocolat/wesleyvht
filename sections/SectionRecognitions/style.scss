@@ -233,13 +233,14 @@
 
 .button-arrow {
     &::v-deep {
-        svg {
+        .arrow-container {
             display: none;
 
             @include respond-to('medium') {
                 display: block;
             }
         }
+
     }
 }
 

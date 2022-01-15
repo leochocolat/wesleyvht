@@ -7,39 +7,21 @@
 
                 <div class="col">
 
-                    <p class="col-title paragraph-1">
-
-                        {{ staticCopy.contact.availability }}
-
-                    </p>
-
-                    <RichText :document="data.availability" class="col-content paragraph-1" />
+                    <CardAvailability :data="data" />
 
                 </div>
 
                 <div class="col">
 
-                    <p class="col-title paragraph-1">
-
-                        {{ staticCopy.contact.email }}
-
-                    </p>
-
-                    <ButtonArrowWrapper>
-
-                        <a class="button paragraph-1" :href="`mailto:${data.email}`">
-
-                            {{ data.email }}
-
-                        </a>
-
-                    </ButtonArrowWrapper>
+                    <CardAvailability :data="data" />
 
                 </div>
 
                 <div class="col">
 
-                    <p class="col-title paragraph-1">
+                    <CardAvailability :data="data" />
+
+                    <!-- <p class="col-title paragraph-1">
 
                         {{ staticCopy.contact.socials }}
 
@@ -57,7 +39,7 @@
 
                         </ButtonArrowWrapper>
 
-                    </div>
+                    </div> -->
 
                 </div>
 

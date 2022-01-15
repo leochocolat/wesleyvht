@@ -1,7 +1,9 @@
 <template>
     <div class="button-arrow-wrapper">
         <slot></slot>
-        <Arrow />
+        <div class="arrow-container">
+            <Arrow />
+        </div>
     </div>
 </template>
 

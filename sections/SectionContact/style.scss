@@ -1,54 +1,20 @@
 .section-contact {
-    margin-bottom: rem(40px, 'extra-small');
+    margin-bottom: rem(20px, 'extra-small');
 
     @include respond-to('small') {
-        margin-bottom: rem(160px, 'small');
+        margin-bottom: rem(32px, 'small');
     }
     
     @include respond-to('medium') {
-        margin-bottom: rem(160px, 'medium');
+        margin-bottom: rem(42px, 'medium');
     }
     
     @include respond-to('large') {
-        margin-bottom: rem(260px, 'medium');
+        margin-bottom: rem(30px, 'medium');
     }
     
     @include respond-to('extra-large') {
-        margin-bottom: rem(320px, 'medium');
-    }
-}
-
-.col-title {
-    margin-bottom: rem(30px, 'extra-small');
-
-    padding-top: rem(10px, 'extra-small');
-
-    color: $color-grey;
-
-    border-top: solid 1px $color-black;
-
-    @include respond-to('small') {
-        margin-bottom: rem(30px, 'small');
-
-        padding-top: rem(10px, 'small');
-    }
-    
-    @include respond-to('medium') {
-        margin-bottom: rem(40px, 'medium');
-
-        padding-top: rem(10px, 'medium');
-    }
-    
-    @include respond-to('large') {
-        margin-bottom: rem(40px, 'large');
-
-        padding-top: rem(12px, 'large');
-    }
-    
-    @include respond-to('extra-large') {
-        margin-bottom: rem(40px, 'extra-large');
-
-        padding-top: rem(12px, 'extra-large');
+        margin-bottom: rem(30px, 'medium');
     }
 }
 
@@ -70,7 +36,7 @@
 
     width: 100%;
 
-    margin-bottom: rem(40px, 'extra-small');
+    margin-bottom: rem(20px, 'extra-small');
 
     vertical-align: top;
 
@@ -84,35 +50,37 @@
         width: size(3, 2, 'small');
         min-width: size(3, 2, 'small');
 
-        margin-bottom: rem(40px, 'small');
+        margin-bottom: rem(20px, 'small');
     }
 
     @include respond-to('medium') {
         width: size(8, 7, 'medium');
         min-width: size(8, 7, 'medium');
 
-        margin-bottom: rem(40px, 'small');
+        margin-bottom: rem(20px, 'small');
     }
 
     @include respond-to('large') {
-        width: rem(426px, 'large');
-        min-width: auto;
+        width: size(8, 7, 'large');
+        min-width: size(8, 7, 'large');
 
         margin-bottom: 0;
 
         &:last-child {
-            width: rem(426px, 'large');
+            width: size(8, 7, 'large');
+            min-width: size(8, 7, 'large');
         }
     }
 
     @include respond-to('extra-large') {
         width: size(8, 7, 'extra-large');
-        min-width: auto;
+        min-width: size(8, 7, 'extra-large');
 
         margin-bottom: 0;
 
         &:last-child {
             width: size(8, 7, 'extra-large');
+            min-width: size(8, 7, 'extra-large');
         }
     }
 }

@@ -2,7 +2,7 @@
 import utils from '@/mixins/utils';
 
 // Components
-import ButtonArrowWrapper from '@/components/ButtonArrowWrapper';
+import CardAvailability from '@/components/CardAvailability';
 
 export default {
     props: ['data'],
@@ -10,6 +10,6 @@ export default {
     mixins: [utils],
 
     components: {
-        ButtonArrowWrapper,
+        CardAvailability,
     },
 };
