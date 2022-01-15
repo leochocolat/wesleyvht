@@ -19,7 +19,7 @@ export default {
     },
 
     mounted() {
-        console.log(this.data.email);
+        // console.log(this.data.email);
     },
 
     components: {

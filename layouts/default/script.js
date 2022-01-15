@@ -7,7 +7,6 @@ import DebugGrid from '@/components/DebugGrid';
 import ScrollContainer from '@/components/ScrollContainer';
 import TheNavigation from '@/components/TheNavigation';
 import TheNavigationScroll from '@/components/TheNavigationScroll';
-import TheFooter from '@/components/TheFooter';
 
 export default {
     computed: {
@@ -34,7 +33,6 @@ export default {
         ScrollContainer,
         TheNavigation,
         TheNavigationScroll,
-        TheFooter,
     },
 };
 

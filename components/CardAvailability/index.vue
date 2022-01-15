@@ -8,7 +8,7 @@
         <div class="credits">
 
             <span class="role paragraph-2">
-                {{ globalData.fields.footer.fields.developmentCredit.fields.role }}
+                {{ data.developmentCredit.fields.role }}
             </span>
 
             <span class="separator paragraph-2">
@@ -17,8 +17,8 @@
 
             <ButtonArrowWrapper>
 
-                <a :href="globalData.fields.footer.fields.developmentCredit.fields.website" target="_blank" rel="noopener noreferrer" class="button paragraph-2">
-                    {{ globalData.fields.footer.fields.developmentCredit.fields.name }}
+                <a :href="data.developmentCredit.fields.website" target="_blank" rel="noopener noreferrer" class="button paragraph-2">
+                    {{ data.developmentCredit.fields.name }}
                 </a>
 
             </ButtonArrowWrapper>

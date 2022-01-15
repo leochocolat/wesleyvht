@@ -20,7 +20,7 @@
             </div>
 
             <div class="copyrights heading-3">
-                {{ globalData.fields.footer.fields.copyright }}
+                {{ data.copyright }}
             </div>
 
         </div>

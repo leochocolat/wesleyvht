@@ -13,9 +13,6 @@
             <!-- Router Views -->
             <Nuxt />
 
-            <!-- Footer -->
-            <!-- <TheFooter :data="data.fields.footer.fields" /> -->
-
         </ScrollContainer>
 
         <!-- Debug -->
