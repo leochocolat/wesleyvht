@@ -104,7 +104,9 @@
     margin-bottom: rem(11px, 'extra-small');
 
     @include respond-to('small') {
-        width: size(3, 2, 'small');
+        width: 48.2%;
+
+        margin-right: 10%;
 
         margin-bottom: rem(11px, 'small');
 
@@ -117,10 +119,15 @@
         }
     }
 
+    
     @include respond-to('medium') {
-        width: size(8, 7, 'medium');
+        width: 48.65%;
+
+        margin-right: 10%;
 
         margin-bottom: rem(11px, 'medium');
+
+        border: solid 1px red;
 
         &:nth-child(3) {
             margin-bottom: rem(11px, 'medium');
@@ -133,6 +140,8 @@
 
     @include respond-to('large') {
         width: 100%;
+
+        margin-right: 0;
 
         margin-bottom: rem(11px, 'large');
 
@@ -175,15 +184,27 @@
 }
 
 .copyrights {
-    position: absolute;
-    right: 0;   
-    bottom: 0;   
+    position: relative;
+
+    width: 100%;
+    
+    margin-top: rem(40px, 'extra-small');
 
     font-size: rem(40px, 'extra-small');
     line-height: rem(40px, 'extra-small');
     letter-spacing: letter-spacing(-1.8, 40px);
 
+    text-align: right;
+
     @include respond-to('small') {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        width: auto;
+
+        margin-top: 0;
+
         font-size: rem(60px, 'small');
         line-height: rem(60px, 'small');
         letter-spacing: letter-spacing(-1.8, 60px);

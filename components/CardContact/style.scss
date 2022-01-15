@@ -36,7 +36,7 @@
 .card-title {
     display: block;
 
-    margin-bottom: rem(40px, 'extra-small');
+    margin-bottom: rem(77px, 'extra-small');
 
     @include respond-to('small') {
         margin-bottom: rem(40px, 'small');
@@ -60,9 +60,15 @@
 }
 
 .arrow-single {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    margin-top: rem(77px, 'extra-small');
 
     background-color: $color-light-grey-2;
+
+    @include respond-to('small') {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        margin-top: 0;
+    }
 }
