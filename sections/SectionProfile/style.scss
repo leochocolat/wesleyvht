@@ -81,12 +81,18 @@
 }
 
 .image-container {
+    position: relative;
+
     width: 100%;
     height: 0;
+    
+    overflow: hidden;
 
     padding-top: aspect-ratio(335, 399);
 
     background-color: $color-light-grey;
+
+    border-radius: 8px;
 
     @include respond-to('small') {
         padding-top: aspect-ratio(728, 866);
@@ -102,6 +108,29 @@
     
     @include respond-to('extra-large') {
         padding-top: aspect-ratio(840, 1189);
+    }
+}
+
+.image {
+    position: absolute;
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    &::v-deep {
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
     }
 }
 

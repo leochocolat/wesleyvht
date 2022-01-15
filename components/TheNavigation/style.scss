@@ -143,10 +143,10 @@
 }
 
 .button-navigation {
-    padding-bottom: rem(3px, 'extra-small');
+    padding-bottom: rem(5px, 'extra-small');
 
     @include respond-to('small') {
-        padding-bottom: rem(3px, 'small');
+        padding-bottom: rem(5px, 'small');
     }
     
     @include respond-to('medium') {
@@ -269,6 +269,8 @@
     height: rem(20px, 'extra-small');
 
     margin: auto;
+
+    padding-top: rem(1px, 'extra-small');
 
     @include respond-to('small') {
         height: rem(20px, 'small');

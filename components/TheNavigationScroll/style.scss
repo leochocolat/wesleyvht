@@ -130,6 +130,8 @@
     align-items: flex-end;
 
     height: 100%;
+
+    // border: solid 1px red;
     
     @include respond-to('medium') {
         opacity: 1;
@@ -153,18 +155,16 @@
 }
 
 .button-container {
-    margin-right: rem(40px, 'extra-small');
+    margin-right: rem(20px, 'extra-small');
 
     @include respond-to('small') {
         margin-right: rem(40px, 'small');
     }
 
     @include respond-to('medium') {
-        margin-right: 0;
-    }
-
-    @include respond-to('medium') {
         width: rem(101px, 'medium');
+
+        margin-right: 0;
     }
 
     @include respond-to('large') {
@@ -177,10 +177,10 @@
 }
 
 .button-navigation {
-    padding-bottom: rem(3px, 'extra-small');
+    padding-bottom: rem(4px, 'extra-small');
 
     @include respond-to('small') {
-        padding-bottom: rem(3px, 'small');
+        padding-bottom: rem(4px, 'small');
     }
     
     @include respond-to('medium') {
@@ -277,6 +277,18 @@
 .button-toggle-navigation {
     width: auto;
     height: 100%;
+
+    padding-top: rem(2px, 'extra-small');
+
+    @include respond-to('small') {
+        padding-top: rem(2px, 'small');
+    }
+
+    @include respond-to('medium') {
+        padding-top: 0;
+    }
+
+    // border: solid 1px red;
 }
 
 .icon-toggle-navigation {

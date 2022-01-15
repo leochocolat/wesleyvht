@@ -4,7 +4,7 @@
         <ImageRenderer
             :source="data.fields.file.url"
             :alt="data.fields.title"
-            :sizes="[400, 750, 1000, 850, 1200]"
+            :sizes="[500, 1000, 1200, 1200, 1600]"
             :width="data.fields.file.details.image.width"
             :height="data.fields.file.details.image.height"
             :low="10"

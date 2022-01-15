@@ -13,6 +13,16 @@
 
                     <div class="image-container">
 
+                        <ImageRenderer
+                            class="image"
+                            :source="data.image.fields.file.url"
+                            :alt="data.image.fields.title"
+                            :sizes="[500, 1000, 1200, 1200, 1600]"
+                            :width="data.image.fields.file.details.image.width"
+                            :height="data.image.fields.file.details.image.height"
+                            :low="10"
+                        />
+
                     </div>
 
                 </div>

@@ -6,6 +6,7 @@ import staticCopy from '@/assets/copy';
 
 // Components
 import RichText from '@/components/RichText';
+import ImageRenderer from '@/components/ImageRenderer';
 
 export default {
     data() {
@@ -26,5 +27,6 @@ export default {
 
     components: {
         RichText,
+        ImageRenderer,
     },
 };

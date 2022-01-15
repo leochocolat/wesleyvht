@@ -268,12 +268,18 @@
 }
 
 .image-container {
+    position: relative;
+
     width: 100%;
     height: 0;
+
+    overflow: hidden;
 
     padding-bottom: 100%;
     
     background-color: $color-light-grey;
+
+    border-radius: 8px;
 
     @include respond-to('large') {
         padding-bottom: aspect-ratio(796px, 828px);
