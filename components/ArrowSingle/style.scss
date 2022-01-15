@@ -1,0 +1,69 @@
+.arrow-single {
+    position: relative;
+
+    width: rem(28px, 'extra-small');
+    height: rem(28px, 'extra-small');
+
+    background-color: $color-light-grey-3;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    @include respond-to('small') {
+        width: rem(28px, 'small');
+        height: rem(28px, 'small');
+    }
+
+    @include respond-to('medium') {
+        width: rem(28px, 'medium');
+        height: rem(28px, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: rem(28px, 'large');
+        height: rem(28px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: rem(28px, 'extra-large');
+        height: rem(28px, 'extra-large');
+    }
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: rem(10px, 'extra-small');
+        height: rem(10px, 'extra-small');
+
+        margin: auto;
+
+        * {
+            fill: $color-grey;
+        }
+
+        @include respond-to('small') {
+            width: rem(10px, 'small');
+            height: rem(10px, 'small');
+        }
+
+        @include respond-to('medium') {
+            width: rem(10px, 'medium');
+            height: rem(10px, 'medium');
+        }
+
+        @include respond-to('large') {
+            width: rem(10px, 'large');
+            height: rem(10px, 'large');
+        }
+
+        @include respond-to('extra-large') {
+            width: rem(10px, 'extra-large');
+            height: rem(10px, 'extra-large');
+        }
+    }
+}

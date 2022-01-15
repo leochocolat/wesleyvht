@@ -1,7 +1,7 @@
 <template>
     <div class="card-availability">
 
-        <span class="card-title heading-6">*</span>
+        <span class="card-title heading-6">{{ staticCopy.contact.availability }}</span>
 
         <RichText :document="data.availability" class="card-content heading-6" />
 

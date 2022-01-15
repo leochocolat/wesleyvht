@@ -1,0 +1,68 @@
+.card-availability {
+    width: 100%;
+
+    height: 100%;
+
+    padding: rem(20px, 'extra-small');
+
+    background-color: $color-light-grey-3;
+
+    border-radius: 12px;
+
+    @include respond-to('small') {
+        padding: rem(30px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        padding: rem(30px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        padding: rem(30px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        padding: rem(30px, 'extra-large');
+    }
+}
+
+.container {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+.card-title {
+    display: block;
+
+    margin-bottom: rem(40px, 'extra-small');
+
+    @include respond-to('small') {
+        margin-bottom: rem(40px, 'small');
+    }
+    
+    @include respond-to('medium') {
+        margin-bottom: rem(40px, 'medium');
+    }
+    
+    @include respond-to('large') {
+        margin-bottom: rem(40px, 'large');
+    }
+    
+    @include respond-to('extra-large') {
+        margin-bottom: rem(40px, 'extra-large');
+    }
+}
+
+.email {
+    // @include selectable();
+}
+
+.arrow-single {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background-color: $color-light-grey-2;
+}

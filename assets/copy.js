@@ -23,8 +23,8 @@ export default {
     },
 
     contact: {
-        availability: 'Availability',
-        email: 'Mail',
+        availability: '*',
+        email: 'Mail*',
         socials: 'Socials',
     },
 };
