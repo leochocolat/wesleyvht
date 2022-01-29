@@ -1,56 +1,60 @@
 <template>
     <nav class="the-navigation-scroll">
 
-        <div class="background"></div>
+        <div ref="main" class="main">
 
-        <div class="navigation-container">
+            <div class="background"></div>
 
-            <div class="row">
+            <div class="navigation-container">
 
-                <div ref="colButtonHome" class="col-button-home">
+                <div class="row">
 
-                    <TheButtonHome />
+                    <div ref="colButtonHome" class="col-button-home">
 
-                </div>
-
-                <div ref="colButtons" class="col-buttons">
-
-                    <div v-for="(item, index) in staticCopy.sections" :key="index" class="button-container">
-
-                        <ButtonNavigation :id="item.id" :label="item.name" />
+                        <TheButtonHome />
 
                     </div>
 
-                </div>
+                    <div ref="colButtons" class="col-buttons">
 
-                <div class="col-socials">
+                        <div v-for="(item, index) in staticCopy.sections" :key="index" class="button-container">
 
-                    <div
-                        v-for="(item, index) in data.socials"
-                        :key="index"
-                        class="social-container"
-                    >
+                            <ButtonNavigation :id="item.id" :label="item.name" />
 
-                        <a
-                            :href="item.fields.url"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="button button-social"
+                        </div>
+
+                    </div>
+
+                    <div class="col-socials">
+
+                        <div
+                            v-for="(item, index) in data.socials"
+                            :key="index"
+                            class="social-container"
                         >
-                            {{ item.fields.buttonLabel }}
-                        </a>
+
+                            <a
+                                :href="item.fields.url"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button button-social"
+                            >
+                                {{ item.fields.buttonLabel }}
+                            </a>
+
+                        </div>
 
                     </div>
 
-                </div>
+                    <div class="col-button-toggle-navigation">
 
-                <div class="col-button-toggle-navigation">
+                        <button class="button button-toggle-navigation" @click="clickHandler">
 
-                    <button class="button button-toggle-navigation" @click="clickHandler">
+                            <IconToggleNavigation ref="iconToggleNavigation" class="icon-toggle-navigation" />
 
-                        <IconToggleNavigation ref="iconToggleNavigation" class="icon-toggle-navigation" />
+                        </button>
 
-                    </button>
+                    </div>
 
                 </div>
 

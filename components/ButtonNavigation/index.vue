@@ -1,5 +1,5 @@
 <template>
-    <button class="button button-navigation">
+    <button class="button button-navigation" @click="clickHandler">
         {{ label }}
     </button>
 </template>

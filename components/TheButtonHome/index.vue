@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink class="button the-button-home" to="/">
+    <NuxtLink class="button the-button-home" to="/" @click.native="clickHandler">
         {{ staticCopy.name }}
     </NuxtLink>
 </template>

@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 // Utils
 import EventDispatcher from './EventDispatcher';
 import math from './math';
+import WindowResizeObserver from './WindowResizeObserver';
 
 const DEBOUNCE_RATE = 250;
 
@@ -28,6 +29,7 @@ class ScrollManager extends EventDispatcher {
         this._smoothPosition = window.scrollY;
         this._smoothDelta = 0;
 
+        this._getScrollHeight();
         this._bindAll();
         this._setupEventListeners();
     }
@@ -37,6 +39,10 @@ class ScrollManager extends EventDispatcher {
      */
     destroy() {
         this._removeEventListeners();
+    }
+
+    update() {
+        this._getScrollHeight();
     }
 
     /**
@@ -117,10 +123,9 @@ class ScrollManager extends EventDispatcher {
                 break;
         }
 
-        window.scrollTo({
-            top: scrollDestination,
-            behavior: 'smooth',
-        });
+        scrollDestination = math.clamp(scrollDestination, 0, this._scrollHeight);
+
+        gsap.to(this, { duration: 1.5, position: scrollDestination, ease: 'power3.inOut' });
     }
 
     /**
@@ -129,7 +134,9 @@ class ScrollManager extends EventDispatcher {
     _checkScroll() {
         if (!this._isEnabled) return;
 
-        const position = math.lerp(this._smoothPosition, this._position, this._damping);
+        let position = math.lerp(this._smoothPosition, this._position, this._damping);
+        position = math.clamp(position, 0, this._scrollHeight);
+
         const roundedPosition = Math.round(position * 100) / 100;
 
         const delta = this._smoothPosition - roundedPosition;
@@ -143,6 +150,10 @@ class ScrollManager extends EventDispatcher {
         if (roundedDelta !== 0) {
             this.smoothScrollHandler();
         } else if (this._isSmoothScrolling) this._smoothScrollEndHandler();
+    }
+
+    _getScrollHeight() {
+        this._scrollHeight = document.body.offsetHeight - WindowResizeObserver.viewportHeight;
     }
 
     _bindAll() {
@@ -174,7 +185,8 @@ class ScrollManager extends EventDispatcher {
 
         this._isScrolling = true;
 
-        const position = Math.max(this._el.pageYOffset, 0);
+        let position = Math.max(this._el.pageYOffset, 0);
+        position = math.clamp(position, 0, this._scrollHeight);
         const delta = this._position - position;
 
         this._position = position;

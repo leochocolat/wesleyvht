@@ -1,9 +1,41 @@
+// Prevent masking element on scroll bounce safari
+$bounce-offset: 200px;
+
 .the-navigation-scroll {
     z-index: 10000;
 
-    display: flex;
     position: fixed;
-    top: rem(20px, 'extra-small');
+    top: -$bounce-offset;
+    left: 0;
+
+    width: 100%;
+    height: calc(#{rem(98px, 'extra-small')} + #{$bounce-offset});
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    @include respond-to('small') {
+        height: calc(#{rem(98px, 'small')} + #{$bounce-offset});
+    }
+
+    @include respond-to('medium') {
+        height: calc(#{rem(108px, 'medium')} + #{$bounce-offset});
+    }
+
+    @include respond-to('large') {
+        height: calc(#{rem(108px, 'large')} + #{$bounce-offset});
+    }
+
+    @include respond-to('extra-large') {
+        height: calc(#{rem(108px, 'large')} + #{$bounce-offset});
+    }
+}
+
+.main {
+    display: flex;
+    position: absolute;
+    top: calc(#{rem(20px, 'extra-small')} + #{$bounce-offset});
     right: 0;
     left: 0;
 
@@ -18,29 +50,31 @@
 
     transform: translateY(-150%);
 
+    pointer-events: all;
+
     @include respond-to('small') {
-        top: rem(20px, 'small');
+        top: calc(#{rem(20px, 'small')} + #{$bounce-offset});
 
         width: rem(698px, 'small');
         height: rem(68px, 'small');
     }
     
     @include respond-to('medium') {
-        top: rem(30px, 'medium');
+        top: calc(#{rem(30px, 'medium')} + #{$bounce-offset});
 
         width: size(14, 13, 'medium');
         height: rem(68px, 'medium');
     }
     
     @include respond-to('large') {
-        top: rem(30px, 'large');
+        top: calc(#{rem(30px, 'large')} + #{$bounce-offset});
 
         width: size(22, 21, 'large');
         height: rem(68px, 'large');
     }
     
     @include respond-to('extra-large') {
-        top: rem(30px, 'extra-large');
+        top: calc(#{rem(30px, 'extra-large')} + #{$bounce-offset});
 
         width: size(22, 21, 'extra-large');
         height: rem(68px, 'large');

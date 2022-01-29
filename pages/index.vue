@@ -2,22 +2,22 @@
     <div class="page-home">
 
         <!-- Intro -->
-        <SectionIntro :data="data.fields.header.fields" />
+        <SectionIntro id="intro" :data="data.fields.header.fields" />
 
         <!-- Projects -->
-        <SectionProjects :data="data.fields.sectionProjects" />
+        <SectionProjects id="work" :data="data.fields.sectionProjects" />
 
         <!-- Profile -->
-        <SectionProfile :data="data.fields.sectionProfile.fields" />
+        <SectionProfile id="profile" :data="data.fields.sectionProfile.fields" />
 
         <!-- Recognitions -->
-        <SectionRecognitions :data="data.fields.sectionRecognitions.fields" />
+        <SectionRecognitions id="recognitions" :data="data.fields.sectionRecognitions.fields" />
 
         <!-- Partners -->
-        <SectionPartners :data="data.fields.sectionPartners.fields" />
+        <SectionPartners id="partners" :data="data.fields.sectionPartners.fields" />
 
         <!-- Contact -->
-        <SectionContact :data="data.fields.sectionContact.fields" />
+        <SectionContact id="contact" :data="data.fields.sectionContact.fields" />
 
     </div>
 </template>

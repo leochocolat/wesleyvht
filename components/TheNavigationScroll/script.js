@@ -58,13 +58,19 @@ export default {
          * Private
          */
         show() {
-            gsap.killTweensOf(this.$el);
-            gsap.to(this.$el, { duration: 0.4, y: '0%', ease: 'sine.out' });
+            gsap.killTweensOf(this.$refs.main);
+
+            const timeline = new gsap.timeline();
+            // timeline.set(this.$refs.main, { visibility: 'visible' });
+            timeline.to(this.$refs.main, { duration: 0.4, y: '0%', ease: 'sine.out' });
         },
 
         hide() {
-            gsap.killTweensOf(this.$el);
-            gsap.to(this.$el, { duration: 0.3, y: '-150%', ease: 'sine.inOut' });
+            gsap.killTweensOf(this.$refs.main);
+
+            const timeline = new gsap.timeline();
+            timeline.to(this.$refs.main, { duration: 0.3, y: '-150%', ease: 'sine.inOut' });
+            // timeline.set(this.$refs.main, { visibility: 'hidden' });
         },
 
         openNavigation() {

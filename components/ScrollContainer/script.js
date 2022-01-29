@@ -107,6 +107,7 @@ export default {
                 this.transformY(this.$refs.content, null);
             }
 
+            ScrollManager.update();
             ScrollManager.setPosition(this.lockPosition);
             ScrollManager.enable();
         },
@@ -129,6 +130,7 @@ export default {
 
             this.transformY(this.$refs.content, -position, false);
 
+            ScrollManager.update();
             ScrollManager.enable();
         },
 
