@@ -21,11 +21,6 @@ export default {
         }),
     },
 
-    mounted() {
-        // Debug
-        // console.log(this.data);
-    },
-
     components: {
         SectionIntro,
         SectionProjects,

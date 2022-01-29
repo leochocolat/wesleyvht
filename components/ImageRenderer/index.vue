@@ -1,7 +1,7 @@
 <template>
-    <div class="image-renderer">
+    <div class="image-renderer" :class="isOldSafari ? 'is-old-safari' : ''">
 
-        <picture class="picture-low">
+        <picture v-if="thumbnail && !isLoaded" class="picture-low">
 
             <!-- webp source -->
             <source :srcset="`${source}?w=${low}&fm=webp`" type="image/webp">

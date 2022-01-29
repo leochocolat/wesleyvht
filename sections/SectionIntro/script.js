@@ -2,6 +2,9 @@
 import utils from '@/mixins/utils';
 import scrollTrigger from '@/mixins/scrollTrigger';
 
+// Utils
+import Sticky from '@/utils/Sticky';
+
 // Components
 import Logo from '@/assets/icons/logo.svg?inline';
 
@@ -10,8 +13,14 @@ export default {
 
     mixins: [utils, scrollTrigger],
 
-    components: {
-        Logo,
+    mounted() {
+        // this.sticky = new Sticky({
+        //     el: this.$refs.colText,
+        //     trigger: this.$el,
+        //     start: '200%',
+        //     end: '250%',
+        //     markers: true,
+        // });
     },
 
     methods: {
@@ -22,5 +31,9 @@ export default {
                 this.$store.dispatch('navbar/disable');
             }
         },
+    },
+
+    components: {
+        Logo,
     },
 };

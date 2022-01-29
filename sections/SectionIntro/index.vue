@@ -5,7 +5,7 @@
 
             <div class="row">
 
-                <div class="col-text">
+                <div ref="colText" class="col-text">
 
                     <div class="paragraph-2 text-title">
                         Introduction

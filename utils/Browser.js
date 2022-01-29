@@ -7,6 +7,10 @@ class Browser {
         }
     }
 
+    get browser() {
+        return this._browser.parsedResult.browser;
+    }
+
     isFirefox() {
         return this._browser.isBrowser('Firefox');
     }

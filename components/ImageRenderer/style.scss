@@ -5,6 +5,12 @@
     height: 100%;
 
     overflow: hidden;
+
+    &.is-old-safari {
+        .image-full {
+            opacity: 1;
+        }
+    }
 }
 
 .image-full {
@@ -12,5 +18,5 @@
 }
 
 .image-low {
-    filter: blur(10px);
+    filter: blur(50px);
 }

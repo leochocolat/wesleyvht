@@ -70,8 +70,8 @@ class Sticky {
         this._endPosition = this._getEndPosition();
         this._distance = this._endPosition - this._startPosition;
 
-        this._anticipationDistance = 0;
-        this._anticipationOffsetSize = 0;
+        this._anticipationDistance = { top: 0, bottom: 0 };
+        this._anticipationOffsetSize = { top: 0, bottom: 0 };
 
         this._createStickyContainerTouch();
 
@@ -128,8 +128,8 @@ class Sticky {
         const anticipationTop = document.createElement('div');
         anticipationTop.style.position = 'fixed';
         anticipationTop.style.left = 0;
-        anticipationTop.style.top = `${this._startPosition - this._anticipationDistance}px`;
-        anticipationTop.style.height = `${this._anticipationDistance}px`;
+        anticipationTop.style.top = `${this._startPosition - this._anticipationDistance.top}px`;
+        anticipationTop.style.height = `${this._anticipationDistance.top}px`;
         anticipationTop.style.width = '10px';
         anticipationTop.style.backgroundColor = 'blue';
         document.body.appendChild(anticipationTop);
@@ -138,7 +138,7 @@ class Sticky {
         anticipationBottom.style.position = 'fixed';
         anticipationBottom.style.left = 0;
         anticipationBottom.style.top = `${this._endPosition}px`;
-        anticipationBottom.style.height = `${this._anticipationDistance}px`;
+        anticipationBottom.style.height = `${this._anticipationDistance.bottom}px`;
         anticipationBottom.style.width = '10px';
         anticipationBottom.style.backgroundColor = 'purple';
         document.body.appendChild(anticipationBottom);
@@ -185,15 +185,39 @@ class Sticky {
     }
 
     _getAnticipationDistance(value) {
-        if (typeof value === 'number') return value;
+        if (typeof value === 'number') return { top: value, bottom: value };
 
-        if (typeof value === 'string' && value.includes('%')) return (parseFloat(value) / 100) * this._triggerBounds.height;
+        if (typeof value === 'string' && value.includes('%')) return { top: (parseFloat(value) / 100) * this._triggerBounds.height, bottom: (parseFloat(value) / 100) * this._triggerBounds.height };
+
+        if (typeof value === 'object') {
+            const distance = { top: 0, bottom: 0 };
+
+            if (typeof value.top === 'number') distance.top = value.top;
+            if (typeof value.bottom === 'number') distance.bottom = value.bottom;
+
+            if (typeof value.top === 'string') distance.top = (parseFloat(value.top) / 100) * this._triggerBounds.height;
+            if (typeof value.bottom === 'string') distance.bottom = (parseFloat(value.bottom) / 100) * this._triggerBounds.height;
+
+            return distance;
+        }
     }
 
     _getAnticipationOffsetSize(value) {
-        if (typeof value === 'number') return value;
+        if (typeof value === 'number') return { top: value, bottom: value };
 
-        if (typeof value === 'string' && value.includes('%')) return (parseFloat(value) / 100) * this._triggerBounds.height;
+        if (typeof value === 'string' && value.includes('%')) return { top: (parseFloat(value) / 100) * this._triggerBounds.height, bottom: (parseFloat(value) / 100) * this._triggerBounds.height };
+
+        if (typeof value === 'object') {
+            const offsetSize = { top: 0, bottom: 0 };
+
+            if (typeof value.top === 'number') offsetSize.top = value.top;
+            if (typeof value.bottom === 'number') offsetSize.bottom = value.bottom;
+
+            if (typeof value.top === 'string') offsetSize.top = (parseFloat(value.top) / 100) * this._triggerBounds.height;
+            if (typeof value.bottom === 'string') offsetSize.bottom = (parseFloat(value.bottom) / 100) * this._triggerBounds.height;
+
+            return offsetSize;
+        }
     }
 
     _updatePosition() {
@@ -201,20 +225,20 @@ class Sticky {
         const distanceFromEnd = this._endPosition - this._scrollPosition;
 
         this._progress = math.clamp((-distanceFromStart) / this._distance, 0, 1);
-        this._globalProgress = math.clamp(-(distanceFromStart - this._anticipationDistance) / (this._distance + this._anticipationDistance), 0, 1);
+        this._globalProgress = math.clamp(-(distanceFromStart - this._anticipationDistance.top) / (this._distance + this._anticipationDistance.bottom), 0, 1);
         const offsetY = this._progress * this._distance;
 
         // Anticipation Top
-        const anticipationProgressTop = math.clamp(1 - distanceFromStart / this._anticipationDistance, 0, 1);
+        const anticipationProgressTop = math.clamp(1 - distanceFromStart / this._anticipationDistance.top, 0, 1);
         const easedAnticipationProgressTop = easings.easeInCubic(anticipationProgressTop);
-        const anticipationOffsetTop = easedAnticipationProgressTop * this._anticipationOffsetSize;
+        const anticipationOffsetTop = easedAnticipationProgressTop * this._anticipationOffsetSize.top;
 
         // Anticipation Bottom
-        const anticipationProgressBottom = math.clamp(1 - distanceFromEnd / this._anticipationDistance, 0, 1);
+        const anticipationProgressBottom = math.clamp(1 - distanceFromEnd / this._anticipationDistance.bottom, 0, 1);
         const easedAnticipationProgressBottom = easings.easeInCubic(anticipationProgressBottom);
-        const anticipationOffsetBottom = easedAnticipationProgressBottom * this._anticipationOffsetSize;
+        const anticipationOffsetBottom = easedAnticipationProgressBottom * this._anticipationOffsetSize.bottom;
 
-        this._transformY(this._el, offsetY + anticipationOffsetTop - this._anticipationOffsetSize - anticipationOffsetBottom);
+        this._transformY(this._el, offsetY + anticipationOffsetTop - this._anticipationOffsetSize.top - anticipationOffsetBottom);
     }
 
     _watchPositionTouch() {
