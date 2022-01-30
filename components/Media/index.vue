@@ -1,7 +1,10 @@
 <template>
     <div class="media">
 
+        <VideoRenderer v-if="isVideo" ref="videoRenderer" :source="data.fields.file.url" />
+
         <ImageRenderer
+            v-else
             :source="data.fields.file.url"
             :alt="data.fields.title"
             :sizes="[500, 1000, 1200, 1200, 1600]"
