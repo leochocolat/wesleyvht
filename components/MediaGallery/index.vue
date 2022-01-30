@@ -1,7 +1,7 @@
 <template>
     <div class="media-gallery">
 
-        <Media :key="index" :data="medias[index]" />
+        <Media v-for="(item, i) in medias" :key="i" :data="medias[index]" :class="i === index ? 'is-active' : ''" />
 
     </div>
 </template>
