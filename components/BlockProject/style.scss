@@ -109,6 +109,7 @@
 
 .list-container {
     display: flex;
+
     flex-direction: column;
 
     @include respond-to('large') {
@@ -123,35 +124,39 @@
     align-items: center;
 
     width: 100%;
-
-    margin-bottom: rem(30px, 'extra-small');
-
-    @include respond-to('small') {
-        margin-bottom: rem(30px, 'small');
-    }
     
     @include respond-to('medium') {
         width: size(9, 8, 'medium');
         
-        margin-bottom: rem(30px, 'medium');
         margin-left: size(7, 7, 'medium');
     }
     
     @include respond-to('large') {
         width: 100%;
 
-        margin-top: rem(40px, 'large');
-        margin-bottom: 0;
         margin-left: 0;
-    }
-    
-    @include respond-to('extra-large') {
-        margin-top: rem(40px, 'extra-large');
     }
 }
 
 .list {
-    border-top: solid 1px $color-black;
+    padding-top: rem(30px, 'extra-small');
+
+    @include respond-to('small') {
+        padding-top: rem(30px, 'small');
+    }
+
+    @include respond-to('medium') {
+        padding-top: rem(30px, 'medium');
+    }
+
+    @include respond-to('large') {
+        padding-top: 0;
+        padding-bottom: rem(40px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        padding-bottom: rem(40px, 'extra-large');
+    }
 }
 
 .list-item {
@@ -161,6 +166,10 @@
 
     @include respond-to('small') {
         justify-content: flex-start;
+    }
+
+    &:first-child {
+        border-top: solid 1px $color-black;
     }
 
     &:not(:first-child) {

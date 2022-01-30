@@ -9,7 +9,7 @@
                 <div class="content">
 
                     <!-- Introduction -->
-                    <div class="introduction">
+                    <div ref="introduction" class="introduction">
 
                         <div class="titles">
 
@@ -43,7 +43,7 @@
                         </div>
 
                         <!-- List -->
-                        <ul class="list">
+                        <ul ref="list" class="list">
 
                             <li v-for="(item, index) in listItems" :key="index" class="list-item">
 
@@ -90,8 +90,8 @@
 
                     <div class="buttons">
 
-                        <div class="button-left" @click="clickPreviousHandler"></div>
-                        <div class="button-right" @click="clickNextHandler"></div>
+                        <button class="button button-left" @click="clickPreviousHandler"></button>
+                        <button class="button button-right" @click="clickNextHandler"></button>
 
                     </div>
 
