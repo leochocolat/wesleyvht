@@ -1,8 +1,9 @@
 <template>
-    <div class="button-arrow-wrapper">
+    <div class="button-arrow-wrapper" @mouseenter="mouseenterHandler" @mouseleave="mouseleaveHandler">
         <slot></slot>
         <div class="arrow-container">
-            <Arrow />
+            <div ref="background" class="background"></div>
+            <Arrow ref="arrow" />
         </div>
     </div>
 </template>

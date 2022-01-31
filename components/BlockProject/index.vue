@@ -53,9 +53,9 @@
 
                                 <ul class="sublist">
 
-                                    <li v-for="(subItem, subIndex) in item.items" :key="`sublist-${subIndex}`" class="sublist-item">
+                                    <li v-for="(subItem, subIndex) in item.items" :key="`sublist-${subIndex}`" ref="listItem" class="sublist-item">
 
-                                        <ButtonArrowWrapper v-if="subItem.url && subItem.url !== ''">
+                                        <ButtonArrowWrapper v-if="subItem.url && subItem.url !== ''" ref="buttonWrapper">
 
                                             <a v-if="subItem.url" class="button link paragraph-2" :href="subItem.url" target="_blank" rel="noopener noreferrer">
                                                 {{ subItem.label }}

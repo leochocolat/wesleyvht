@@ -111,6 +111,13 @@
 
     width: 100%;
 
+    a {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+    }
+
     @include respond-to('small') {
         width: rem(137px, 'small');
     }
@@ -128,7 +135,7 @@
     }
 
     &::v-deep {
-        .arrow-container {
+        .background {
             background-color: $color-light-grey-2;
         }
     }

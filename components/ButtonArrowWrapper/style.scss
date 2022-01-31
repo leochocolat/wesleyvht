@@ -4,6 +4,8 @@
     width: 100%;
 
     svg {
+        // opacity: 0;
+
         position: absolute;
         top: 0;
         right: 0;
@@ -50,9 +52,9 @@
     width: rem(28px, 'extra-small');
     height: rem(28px, 'extra-small');
 
+    // overflow: hidden;
+
     margin: auto;
-    
-    background-color: $color-light-grey-3;
 
     border-radius: 50%;
 
@@ -77,4 +79,19 @@
         width: rem(28px, 'extra-large');
         height: rem(28px, 'extra-large');
     }
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: $color-light-grey-3;
+
+    border-radius: 50%;
+
+    // transform: scale(0);
 }
