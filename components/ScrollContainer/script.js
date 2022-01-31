@@ -8,7 +8,7 @@ import ScrollManager from '@/utils/ScrollManager';
 export default {
     data() {
         return {
-            smooth: true,
+            smooth: false,
         };
     },
 

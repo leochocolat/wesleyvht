@@ -92,9 +92,13 @@ export default {
         show() {
             this.$refs.list.style.display = 'block';
             this.$root.updateScroll();
-            for (let i = 0; i < this.$refs.buttonWrapper.length; i++) {
-                this.$refs.buttonWrapper[i].show();
+
+            if (this.$refs.buttonWrapper) {
+                for (let i = 0; i < this.$refs.buttonWrapper.length; i++) {
+                    this.$refs.buttonWrapper[i].show();
+                }
             }
+
             // const timeline = new gsap.timeline();
             // return timeline;
         },
