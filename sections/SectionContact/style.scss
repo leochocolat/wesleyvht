@@ -1,20 +1,20 @@
 .section-contact {
-    margin-bottom: rem(20px, 'extra-small');
+    padding-bottom: rem(20px, 'extra-small');
 
     @include respond-to('small') {
-        margin-bottom: rem(32px, 'small');
+        padding-bottom: rem(32px, 'small');
     }
     
     @include respond-to('medium') {
-        margin-bottom: rem(42px, 'medium');
+        padding-bottom: rem(42px, 'medium');
     }
     
     @include respond-to('large') {
-        margin-bottom: rem(30px, 'medium');
+        padding-bottom: rem(30px, 'medium');
     }
     
     @include respond-to('extra-large') {
-        margin-bottom: rem(30px, 'medium');
+        padding-bottom: rem(30px, 'medium');
     }
 }
 

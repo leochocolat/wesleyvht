@@ -29,10 +29,7 @@ export default {
     },
 
     mounted() {
-        // Fix for about page issue : scroll too long
-        setTimeout(() => {
-            this.setup();
-        }, 500);
+        this.setup();
 
         if (!this.isLocked) {
             ScrollManager.enable();
