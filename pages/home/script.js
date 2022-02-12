@@ -1,5 +1,6 @@
 // Vendor
 import { mapGetters } from 'vuex';
+import { gsap } from 'gsap';
 
 // Mixins
 import page from '@/mixins/page';
@@ -19,6 +20,17 @@ export default {
         ...mapGetters({
             data: 'data/data',
         }),
+    },
+
+    methods: {
+        /**
+         * Public
+         */
+        transitionIn() {
+            const timeline = new gsap.timeline();
+            timeline.add(this.$refs.intro.transitionIn(), 0);
+            return timeline;
+        },
     },
 
     components: {

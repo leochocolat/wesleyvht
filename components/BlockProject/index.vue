@@ -45,17 +45,17 @@
                         <!-- List -->
                         <ul ref="list" class="list">
 
-                            <li v-for="(item, index) in listItems" :key="index" class="list-item">
+                            <li v-for="(item, index) in listItems" :key="index" ref="listItem" class="list-item">
 
-                                <div class="paragraph-2 list-item-title">
+                                <div ref="listItemTitle" class="paragraph-2 list-item-title">
                                     {{ item.title }}
                                 </div>
 
-                                <ul class="sublist">
+                                <ul ref="sublist" class="sublist">
 
-                                    <li v-for="(subItem, subIndex) in item.items" :key="`sublist-${subIndex}`" ref="listItem" class="sublist-item">
+                                    <li v-for="(subItem, subIndex) in item.items" :key="`sublist-${subIndex}`" ref="sublistItem" class="sublist-item">
 
-                                        <ButtonArrowWrapper v-if="subItem.url && subItem.url !== ''" ref="buttonWrapper">
+                                        <ButtonArrowWrapper v-if="subItem.url && subItem.url !== ''" ref="buttonWrapper" class="button-arrow-wrapper">
 
                                             <a v-if="subItem.url" class="button link paragraph-2" :href="subItem.url" target="_blank" rel="noopener noreferrer">
                                                 {{ subItem.label }}

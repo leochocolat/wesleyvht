@@ -1,3 +1,6 @@
+// Vendor
+import { gsap } from 'gsap';
+
 // Mixins
 import utils from '@/mixins/utils';
 import scrollTrigger from '@/mixins/scrollTrigger';
@@ -24,6 +27,14 @@ export default {
     },
 
     methods: {
+        /**
+         * Public
+         */
+        transitionIn() {
+            const timeline = new gsap.timeline();
+            return timeline;
+        },
+
         scrollThrough(progress) {
             if (progress > 1) {
                 this.$store.dispatch('navbar/enable');

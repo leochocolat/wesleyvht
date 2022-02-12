@@ -2,7 +2,7 @@
     <div class="page-home">
 
         <!-- Intro -->
-        <SectionIntro id="intro" :data="data.fields.header.fields" />
+        <SectionIntro id="intro" ref="intro" :data="data.fields.header.fields" />
 
         <!-- Projects -->
         <SectionProjects id="work" :data="data.fields.sectionProjects" />
