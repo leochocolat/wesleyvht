@@ -7,11 +7,12 @@ import scrollTrigger from '@/mixins/scrollTrigger';
 
 // Utils
 import ScrollManager from '@/utils/ScrollManager';
+import Breakpoints from '@/utils/Breakpoints';
+import easings from '@/utils/easings';
 
 // Components
 import Logo from '@/assets/icons/logo.svg?inline';
 import WindowResizeObserver from '@/utils/WindowResizeObserver';
-import easings from '@/utils/easings';
 
 export default {
     props: ['data'],
@@ -48,6 +49,13 @@ export default {
          * Private
          */
         getBounds() {
+            this.isSmall = Breakpoints.current !== 'large' && Breakpoints.current !== 'extra-large';
+
+            if (this.isSmall) {
+                this.resetStyle();
+                return;
+            }
+
             this.stickyContainerBounds = JSON.parse(JSON.stringify(this.$refs.stickyContainer.getBoundingClientRect()));
             this.stickyContainerBounds.y += ScrollManager.position;
             this.stickyContainerBounds.top += ScrollManager.position;
@@ -62,6 +70,8 @@ export default {
         },
 
         updateStickyPosition() {
+            if (this.isSmall) return;
+
             const target = this.height - (this.bounds.bottom - this.stickyContainerBounds.bottom) - this.stickyContainerBounds.height;
             const current = this.stickyContainerBounds.top - ScrollManager.position;
             const offset = Math.min(target - current, 0);
@@ -75,15 +85,17 @@ export default {
             this.$refs.stickyContent.style.transform = `translateY(${translateY}px)`;
         },
 
+        resetStyle() {
+            this.$refs.stickyContent.style.transform = 'none';
+        },
+
         setupEventListeners() {
             WindowResizeObserver.addEventListener('resize', this.resizeHandler);
-            ScrollManager.addEventListener('scroll', this.scrollHandler);
             gsap.ticker.add(this.tickHandler);
         },
 
         removeEventListeners() {
             WindowResizeObserver.removeEventListener('resize', this.resizeHandler);
-            ScrollManager.removeEventListener('scroll', this.scrollHandler);
             gsap.ticker.remove(this.tickHandler);
         },
 
@@ -91,12 +103,8 @@ export default {
             this.getBounds();
         },
 
-        scrollHandler(e) {
-
-        },
-
         tickHandler() {
-            if (!this.isInView) return;
+            if (this.isSmall || !this.isInView) return;
 
             this.updateStickyPosition();
         },
