@@ -41,7 +41,7 @@ export default {
                 y: globalOffsetTop(this.$el),
             };
 
-            this.bounds = { dimensions, position };
+            this.__bounds = { dimensions, position };
         },
 
         __intersectionObserverHandler(e) {
@@ -65,8 +65,8 @@ export default {
         },
 
         __scrollHandler() {
-            const offsetTop = (ScrollManager.position + this.bounds.dimensions.height) - this.bounds.position.y;
-            const progress = (offsetTop / this.bounds.dimensions.height) / 2;
+            const offsetTop = (ScrollManager.position + this.__bounds.dimensions.height) - this.__bounds.position.y;
+            const progress = (offsetTop / this.__bounds.dimensions.height) / 2;
             if (this.scrollThrough && typeof this.scrollThrough === 'function') this.scrollThrough(progress);
         },
 

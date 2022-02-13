@@ -27,12 +27,12 @@
 
 .row {
     display: flex;
+
     flex-direction: column-reverse;
 
     @include respond-to('large') {
-        flex-direction: row;
-
         align-items: flex-end;
+        flex-direction: row;
     }
 }
 
@@ -40,6 +40,8 @@
     width: 100%;
 
     margin-top: rem(20px, 'extra-small');
+
+    // border: solid 1px red;
 
     @include respond-to('small') {
         display: flex;
@@ -62,6 +64,13 @@
     @include respond-to('extra-large') {
         width: size(10, 10, 'extra-large');
     }
+}
+
+.sticky-content {
+    width: 100%;
+    height: auto;
+
+    // border: solid 1px green;
 }
 
 .text-title {
