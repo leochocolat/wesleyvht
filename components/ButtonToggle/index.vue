@@ -2,6 +2,7 @@
     <button class="button button-toggle">
 
         <svg
+            ref="svg"
             width="24px"
             height="24px"
             viewBox="0 0 24 24"

@@ -132,6 +132,7 @@ export default {
         showLarge() {
             const timeline = new gsap.timeline();
 
+            timeline.set(this.$refs.list, { alpha: 1 }, 0);
             timeline.to(this.$refs.introduction, { duration: 0.8, y: 0, ease: 'power4.inOut' }, 0);
 
             for (let i = 0; i < this.$refs.listItem.length; i++) {
@@ -143,9 +144,15 @@ export default {
                 const delay = 0.5;
 
                 const itemTimeline = new gsap.timeline();
+
                 itemTimeline.to(listItem, { duration: 0.5, alpha: 1, ease: 'sine.inOut' }, i * stagger);
+
                 itemTimeline.to(sublist, { duration: 0.5, alpha: 1, ease: 'sine.inOut' }, i * stagger);
+                itemTimeline.fromTo(sublist, { y: '30%' }, { duration: 0.6, y: '0%', ease: 'power3.out' }, i * stagger);
+
                 itemTimeline.to(listItemTitle, { duration: 0.5, alpha: 1, ease: 'sine.inOut' }, i * stagger);
+                itemTimeline.fromTo(listItemTitle, { y: '30%' }, { duration: 0.6, y: '0%', ease: 'power3.out' }, i * stagger);
+
                 if (arrow) itemTimeline.add(arrow.__vue__.show(), i * stagger);
 
                 timeline.add(itemTimeline, delay);
@@ -183,10 +190,11 @@ export default {
         hideLarge() {
             const timeline = new gsap.timeline();
 
-            timeline.set(this.$refs.listItemTitle, { alpha: 0 }, 0);
-            timeline.set(this.$refs.listItem, { alpha: 0 }, 0);
-            timeline.call(this.$root.updateScroll, null, 0);
-            timeline.set(this.$refs.introduction, { y: this.listBounds.height }, 0);
+            timeline.to(this.$refs.list, { duration: 0.2, alpha: 0, ease: 'sine.inOut' });
+            timeline.set(this.$refs.listItemTitle, { alpha: 0 });
+            timeline.set(this.$refs.listItem, { alpha: 0 });
+            timeline.call(this.$root.updateScroll, null);
+            timeline.to(this.$refs.introduction, { duration: 0.8, y: this.listBounds.height, ease: 'power4.inOut' }, 0);
 
             return timeline;
         },

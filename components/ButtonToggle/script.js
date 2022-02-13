@@ -19,15 +19,17 @@ export default {
         open() {
             this.timelineClose?.kill();
             this.timelineOpen = new gsap.timeline();
-            this.timelineOpen.to(this.$refs.groupOpen, { duration: 0.3, alpha: 0, ease: 'sine.inOut' });
-            this.timelineOpen.to(this.$refs.groupClose, { duration: 0.3, alpha: 1, ease: 'sine.inOut' });
+            this.timelineOpen.to(this.$refs.svg, { duration: 0.3, rotation: '45deg', ease: 'sine.inOut' });
+            // this.timelineOpen.to(this.$refs.groupOpen, { duration: 0.3, alpha: 0, ease: 'sine.inOut' });
+            // this.timelineOpen.to(this.$refs.groupClose, { duration: 0.3, alpha: 1, ease: 'sine.inOut' });
         },
 
         close() {
             this.timelineOpen?.kill();
             this.timelineClose = new gsap.timeline();
-            this.timelineClose.to(this.$refs.groupClose, { duration: 0.3, alpha: 0, ease: 'sine.inOut' });
-            this.timelineClose.to(this.$refs.groupOpen, { duration: 0.3, alpha: 1, ease: 'sine.inOut' });
+            this.timelineClose.to(this.$refs.svg, { duration: 0.3, rotation: '0deg', ease: 'sine.inOut' });
+            // this.timelineClose.to(this.$refs.groupClose, { duration: 0.3, alpha: 0, ease: 'sine.inOut' });
+            // this.timelineClose.to(this.$refs.groupOpen, { duration: 0.3, alpha: 1, ease: 'sine.inOut' });
         },
     },
 };
