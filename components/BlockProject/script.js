@@ -221,6 +221,7 @@ export default {
 
         resetStyle() {
             this.$refs.list.style.display = 'block';
+            this.$refs.introduction.style.transform = 'none';
         },
 
         setupEventListeners() {
