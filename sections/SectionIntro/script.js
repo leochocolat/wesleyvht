@@ -13,6 +13,8 @@ import easings from '@/utils/easings';
 // Components
 import Logo from '@/assets/icons/logo.svg?inline';
 import WindowResizeObserver from '@/utils/WindowResizeObserver';
+import math from '@/utils/math';
+import mapRange from '@/utils/math/mapRange';
 
 export default {
     props: ['data'],
@@ -67,6 +69,8 @@ export default {
             this.bounds.bottom += ScrollManager.position;
 
             this.height = WindowResizeObserver.height;
+
+            this.initialDistance = this.bounds.height - this.height;
         },
 
         updateStickyPosition() {
@@ -74,13 +78,12 @@ export default {
 
             const target = this.height - (this.bounds.bottom - this.stickyContainerBounds.bottom) - this.stickyContainerBounds.height;
             const current = this.stickyContainerBounds.top - ScrollManager.position;
-            const offset = Math.min(target - current, 0);
+            const offset = target - current;
 
-            const relativeOffset = offset / (this.bounds.height - this.height);
-            const ease = easings.easeInCirc(1 - Math.abs(relativeOffset));
-            const resistance = 0;
+            const relativeOffset = math.clamp(offset / (this.bounds.height - this.height), -1, 1);
+            const mappedRelativeOffset = mapRange(relativeOffset, -1, 1, 0, 1);
 
-            const translateY = Math.min(offset - resistance, 0);
+            const translateY = Math.min(offset, 0);
 
             this.$refs.stickyContent.style.transform = `translateY(${translateY}px)`;
         },
