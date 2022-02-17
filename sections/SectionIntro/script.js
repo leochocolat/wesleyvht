@@ -36,6 +36,15 @@ export default {
          */
         transitionIn() {
             const timeline = new gsap.timeline();
+
+            const logoOffset = this.logoContainerBounds.x - this.mainContainerBounds.x;
+
+            timeline.fromTo(this.$refs.logoContainer, { x: -logoOffset }, { x: 0, duration: 1.4, ease: 'power4.inOut' }, 1);
+            timeline.fromTo(this.$refs.imageContainer, { y: 200 }, { y: 0, duration: 1.5, ease: 'power4.out' }, 1.5);
+            timeline.to(this.$refs.imageContainer, { alpha: 1, duration: 1.2, ease: 'power4.in' }, 1.5);
+            timeline.fromTo(this.$refs.stickyContent, { y: 200 }, { y: 0, duration: 1.5, ease: 'power4.out' }, 1.5);
+            timeline.to(this.$refs.stickyContent, { alpha: 1, duration: 1.2, ease: 'power4.in' }, 1.5);
+
             return timeline;
         },
 
@@ -51,12 +60,19 @@ export default {
          * Private
          */
         getBounds() {
+            this.logoContainerBounds = this.$refs.logoContainer.getBoundingClientRect();
+            this.mainContainerBounds = this.$refs.mainContainer.getBoundingClientRect();
+
             this.isSmall = Breakpoints.current !== 'large' && Breakpoints.current !== 'extra-large';
 
             if (this.isSmall) {
                 this.resetStyle();
                 return;
             }
+
+            this.logoContainerBounds = this.$refs.logoContainer.getBoundingClientRect();
+
+            this.mainContainerBounds = this.$refs.mainContainer.getBoundingClientRect();
 
             this.stickyContainerBounds = JSON.parse(JSON.stringify(this.$refs.stickyContainer.getBoundingClientRect()));
             this.stickyContainerBounds.y += ScrollManager.position;

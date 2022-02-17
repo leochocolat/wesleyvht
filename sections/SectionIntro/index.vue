@@ -1,7 +1,7 @@
 <template>
     <section class="section-intro">
 
-        <div class="main-container">
+        <div ref="mainContainer" class="main-container">
 
             <div class="row">
 
@@ -21,13 +21,13 @@
 
                 <div class="col-image">
 
-                    <div class="logo-container">
+                    <div ref="logoContainer" class="logo-container">
 
-                        <Logo />
+                        <Logo ref="logo" class="logo" />
 
                     </div>
 
-                    <div class="image-container">
+                    <div ref="imageContainer" class="image-container">
 
                         <ImageRenderer
                             class="image"

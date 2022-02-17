@@ -67,6 +67,8 @@
 }
 
 .sticky-content {
+    opacity: 0;
+
     width: 100%;
     height: auto;
 
@@ -127,7 +129,15 @@
     }
 }
 
+.logo {
+    // opacity: 0;
+}
+
 .image-container {
+    opacity: 0;
+
+    will-change: transform;
+
     position: relative;
 
     width: 100%;
@@ -182,6 +192,8 @@
 }
 
 .logo-container {
+    will-change: transform;
+
     width: 100%;
 
     margin-bottom: rem(12px, 'extra-small');

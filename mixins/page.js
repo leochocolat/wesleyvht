@@ -52,10 +52,10 @@ export default {
             };
 
             // On first navigation, let preloader state trigger transitions (see line 17)
-            if (!routeInfos.previous) {
-                done();
-                return;
-            }
+            // if (!routeInfos.previous) {
+            //     done();
+            //     return;
+            // }
 
             const page = getPage(el.__vue__);
 
