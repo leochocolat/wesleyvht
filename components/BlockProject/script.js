@@ -7,12 +7,12 @@ import utils from '@/mixins/utils';
 // Utils
 import math from '@/utils/math';
 import Breakpoints from '@/utils/Breakpoints';
+import WindowResizeObserver from '@/utils/WindowResizeObserver';
 
 // Components
-import MediaGallery from '@/components/MediaGallery';
+import Slider from '@/components/Slider';
 import ButtonArrowWrapper from '@/components/ButtonArrowWrapper';
 import ButtonToggle from '@/components/ButtonToggle';
-import WindowResizeObserver from '@/utils/WindowResizeObserver';
 
 export default {
     props: ['data'],
@@ -246,14 +246,10 @@ export default {
         clickNextHandler() {
             this.currentIndex = math.modulo(this.currentIndex + 1, this.data.medias.length);
         },
-
-        clickPreviousHandler() {
-            this.currentIndex = math.modulo(this.currentIndex - 1, this.data.medias.length);
-        },
     },
 
     components: {
-        MediaGallery,
+        Slider,
         ButtonArrowWrapper,
         ButtonToggle,
     },

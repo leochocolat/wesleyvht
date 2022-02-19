@@ -86,14 +86,7 @@
 
                 <div class="image-container">
 
-                    <MediaGallery :index="currentIndex" :medias="data.medias" />
-
-                    <div class="buttons">
-
-                        <button class="button button-left" @click="clickPreviousHandler"></button>
-                        <button class="button button-right" @click="clickNextHandler"></button>
-
-                    </div>
+                    <Slider :index="currentIndex" :medias="data.medias" @click.native="clickNextHandler" />
 
                 </div>
 

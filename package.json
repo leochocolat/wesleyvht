@@ -14,7 +14,8 @@
     "bowser": "^2.11.0",
     "contentful": "^8.5.7",
     "gsap": "^3.7.1",
-    "nuxt": "^2.15.8"
+    "nuxt": "^2.15.8",
+    "tweakpane": "^3.0.7"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.14.5",

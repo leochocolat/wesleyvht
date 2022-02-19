@@ -11,6 +11,12 @@
 
                 </div>
 
+                <!-- <div v-for="(item, index) in 1" :key="index" class="project-container">
+
+                    <BlockProject :data="data[index].fields" />
+
+                </div> -->
+
             </div>
 
         </div>

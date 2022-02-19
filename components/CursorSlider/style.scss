@@ -1,0 +1,91 @@
+.cursor-slider {
+    display: flex;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    width: rem(67px, 'extra-small');
+    height: rem(35px, 'extra-small');
+
+    margin: auto;
+
+    font-size: rem(10px, 'extra-small');
+    line-height: rem(8px, 'extra-small');
+
+    color: $color-white;
+    text-align: center;
+
+    pointer-events: none;
+
+    @include respond-to('small') {
+        width: rem(67px, 'small');
+        height: rem(35px, 'small');
+
+        font-size: rem(10px, 'small');
+        line-height: rem(8px, 'small');
+    }
+
+    @include respond-to('medium') {
+        width: rem(67px, 'medium');
+        height: rem(35px, 'medium');
+
+        font-size: rem(10px, 'medium');
+        line-height: rem(8px, 'medium');
+    }
+
+    @include respond-to('large') {
+        width: rem(67px, 'large');
+        height: rem(35px, 'large');
+
+        font-size: rem(10px, 'large');
+        line-height: rem(8px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        width: rem(67px, 'extra-large');
+        height: rem(35px, 'extra-large');
+
+        font-size: rem(12px, 'extra-large');
+        line-height: rem(10px, 'extra-large');
+    }
+}
+
+.text {
+    position: relative;
+    // border: solid 1px red;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: transparentize($color: $color-grey, $amount: 0.05);
+
+    border-radius: rem(17px, 'extra-small');
+
+    @include respond-to('small') {
+        border-radius: rem(17px, 'small');
+    }
+
+    @include respond-to('medium') {
+        border-radius: rem(17px, 'medium');
+    }
+
+    @include respond-to('large') {
+        border-radius: rem(17px, 'large');
+    }
+
+    @include respond-to('extra-large') {
+        border-radius: rem(17px, 'extra-large');
+    }
+}
