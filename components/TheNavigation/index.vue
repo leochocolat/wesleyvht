@@ -5,15 +5,15 @@
 
             <div class="row">
 
-                <div ref="colButtonHome" class="col-button-home">
+                <div ref="colButtonHome" class="col-button-home nav-item">
 
-                    <TheButtonHome />
+                    <TheButtonHome ref="buttonHome" />
 
                 </div>
 
                 <div ref="colButtons" class="col-buttons">
 
-                    <div v-for="(item, index) in staticCopy.sections" :key="index" class="button-container">
+                    <div v-for="(item, index) in staticCopy.sections" ref="buttonNavigation" :key="index" class="button-container nav-item">
 
                         <ButtonNavigation :id="item.id" :label="item.name" @click="clickHandler" />
 
@@ -21,12 +21,13 @@
 
                 </div>
 
-                <div class="col-socials">
+                <div ref="colSocials" class="col-socials">
 
                     <div
                         v-for="(item, index) in data.socials"
                         :key="index"
-                        class="social-container"
+                        ref="buttonSocial"
+                        class="social-container nav-item"
                     >
 
                         <a
@@ -44,7 +45,7 @@
 
                 <div class="col-button-toggle-navigation">
 
-                    <button class="button button-toggle-navigation" @click="clickHandler">
+                    <button ref="buttonToggle" class="button button-toggle-navigation nav-item" @click="clickHandler">
 
                         <IconToggleNavigation ref="iconToggleNavigation" class="icon-toggle-navigation" />
 

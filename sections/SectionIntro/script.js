@@ -24,6 +24,8 @@ export default {
     mounted() {
         this.getBounds();
         this.setupEventListeners();
+
+        // this.transitionIn();
     },
 
     beforeDestroy() {
@@ -38,12 +40,21 @@ export default {
             const timeline = new gsap.timeline();
 
             const logoOffset = this.logoContainerBounds.x - this.mainContainerBounds.x;
+            const letters = this.$refs.logo.querySelectorAll('.letter');
 
-            timeline.fromTo(this.$refs.logoContainer, { x: -logoOffset }, { x: 0, duration: 1.4, ease: 'power4.inOut' }, 1);
-            timeline.fromTo(this.$refs.imageContainer, { y: 200 }, { y: 0, duration: 1.5, ease: 'power4.out' }, 1.5);
-            timeline.to(this.$refs.imageContainer, { alpha: 1, duration: 1.2, ease: 'power4.in' }, 1.5);
-            timeline.fromTo(this.$refs.stickyContent, { y: 200 }, { y: 0, duration: 1.5, ease: 'power4.out' }, 1.5);
-            timeline.to(this.$refs.stickyContent, { alpha: 1, duration: 1.2, ease: 'power4.in' }, 1.5);
+            const timelineIntro = new gsap.timeline();
+            timelineIntro.to(letters, { duration: 0.1, alpha: 1, stagger: -0.5 }, 0);
+
+            const timelineReveal = new gsap.timeline();
+            timelineReveal.fromTo(this.$refs.logoContainer, { x: -logoOffset }, { x: 0, duration: 1.5, ease: 'power4.inOut' }, 0);
+            timelineReveal.add(this.$root.theNavigation.show(), 0.5);
+            timelineReveal.fromTo(this.$refs.imageContainer, { y: 200 }, { y: 0, duration: 1.2, ease: 'power4.out' }, 0.7);
+            timelineReveal.to(this.$refs.imageContainer, { alpha: 1, duration: 1.2, ease: 'sine.inOut' }, 0.7);
+            timelineReveal.fromTo(this.$refs.textContainer, { y: 100 }, { y: 0, duration: 1, ease: 'power4.out' }, 1);
+            timelineReveal.to(this.$refs.stickyContent, { alpha: 1, duration: 1, ease: 'sine.inOut' }, 1);
+
+            timeline.add(timelineIntro);
+            timeline.add(timelineReveal);
 
             return timeline;
         },

@@ -5,24 +5,28 @@
     left: 0;
 
     width: 100%;
-    
+
     margin: auto;
 
     @include respond-to('small') {
         top: rem(20px, 'small');
     }
-    
+
     @include respond-to('medium') {
         top: rem(30px, 'medium');
     }
-    
+
     @include respond-to('large') {
         top: rem(30px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         top: rem(30px, 'extra-large');
     }
+}
+
+.nav-item {
+    opacity: 0;
 }
 
 .row {
@@ -36,17 +40,17 @@
 
 .col-button-home {
     display: inline-block;
-    
+
     @include respond-to('medium') {
         width: size(8, 7, 'medium');
         min-width: size(8, 7, 'medium');
     }
-    
+
     @include respond-to('large') {
         width: size(10, 10, 'large');
         min-width: size(10, 10, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         width: size(10, 10, 'extra-large');
         min-width: size(10, 10, 'extra-large');
@@ -64,22 +68,22 @@
     left: 0;
 
     align-items: flex-end;
-    
+
     @include respond-to('medium') {
         opacity: 1;
         visibility: visible;
-        
+
         position: initial;
 
         width: size(6, 6, 'medium');
         min-width: size(6, 6, 'medium');
     }
-    
+
     @include respond-to('large') {
         width: size(11, 11, 'large');
         min-width: size(11, 11, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         width: size(11, 11, 'extra-large');
         min-width: size(11, 11, 'extra-large');
@@ -101,11 +105,11 @@
         @include respond-to('medium') {
             width: rem(107px, 'medium');
         }
-        
+
         @include respond-to('large') {
             width: rem(282px, 'large');
         }
-        
+
         @include respond-to('extra-large') {
             width: rem(376px, 'extra-large');
         }
@@ -115,11 +119,11 @@
         @include respond-to('medium') {
             width: rem(115px, 'medium');
         }
-        
+
         @include respond-to('large') {
             width: rem(185px, 'large');
         }
-        
+
 
         @include respond-to('extra-large') {
             width: rem(257px, 'extra-large');
@@ -130,11 +134,11 @@
         @include respond-to('medium') {
             width: rem(146px, 'medium');
         }
-        
+
         @include respond-to('large') {
             width: rem(175px, 'large');
         }
-        
+
 
         @include respond-to('extra-large') {
             width: rem(229px, 'extra-large');
@@ -148,15 +152,15 @@
     @include respond-to('small') {
         padding-bottom: rem(5px, 'small');
     }
-    
+
     @include respond-to('medium') {
         padding-bottom: rem(3px, 'medium');
     }
-    
+
     @include respond-to('large') {
         padding-bottom: rem(4px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         padding-bottom: rem(4px, 'extra-large');
     }
@@ -164,7 +168,7 @@
 
 .col-socials {
     display: none;
-    
+
     @include respond-to('medium') {
         display: inline-flex;
 
@@ -251,7 +255,7 @@
         font-size: rem(20px, 'large');
         letter-spacing: rem(-0.4px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         padding-bottom: rem(2px, 'extra-large');
 
@@ -265,7 +269,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    
+
     height: rem(20px, 'extra-small');
 
     margin: auto;

@@ -9,11 +9,16 @@
 
                     <div ref="stickyContent" class="sticky-content">
 
-                        <div class="paragraph-2 text-title">
-                            Introduction
+                        <div ref="textContainer" class="text-container">
+
+                            <div class="paragraph-2 text-title">
+                                Introduction
+                            </div>
+
+                            <RichText :document="data.introduction" class="paragraph-2 text" />
+
                         </div>
 
-                        <RichText :document="data.introduction" class="paragraph-2 text" />
 
                     </div>
 

@@ -28,7 +28,9 @@ export default {
          */
         transitionIn() {
             const timeline = new gsap.timeline();
+            timeline.set(this.$el, { alpha: 1 }, 0);
             timeline.add(this.$refs.intro.transitionIn(), 0);
+            timeline.call(() => { this.$store.dispatch('scroll/unlock'); }, null, 2.5);
             return timeline;
         },
     },

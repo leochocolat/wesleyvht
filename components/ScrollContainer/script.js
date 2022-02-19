@@ -79,8 +79,10 @@ export default {
             // Make Update scroll method accessible from every components
             this.$root.updateScroll = this.update;
 
-            if (this.isLocked) this.lock();
-            else this.unlock();
+            if (this.isLocked) {
+                ScrollManager.position = 0;
+                this.lock();
+            } else this.unlock();
         },
 
         lock() {

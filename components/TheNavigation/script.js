@@ -30,7 +30,22 @@ export default {
         },
     },
 
+    created() {
+        this.$root.theNavigation = this;
+    },
+
     methods: {
+        /**
+         * Public
+         */
+        show() {
+            const navItems = [this.$refs.colButtonHome, ...this.$refs.buttonNavigation, ...this.$refs.buttonSocial, this.$refs.buttonToggle];
+
+            this.timelineShow = new gsap.timeline();
+            this.timelineShow.to(navItems, { duration: 1, alpha: 1, stagger: 0.09 });
+            return this.timelineShow;
+        },
+
         /**
          * Private
          */

@@ -1,5 +1,5 @@
 const state = () => ({
-    isLocked: false,
+    isLocked: true,
     lockPosition: null,
     position: null,
 });
