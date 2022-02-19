@@ -43,7 +43,7 @@ $bounce-offset: 200px;
 
     width: size(2, 1, 'extra-small');
     height: rem(68px, 'extra-small');
-    
+
     margin: auto;
 
     color: $color-white;
@@ -58,21 +58,21 @@ $bounce-offset: 200px;
         width: rem(698px, 'small');
         height: rem(68px, 'small');
     }
-    
+
     @include respond-to('medium') {
         top: calc(#{rem(30px, 'medium')} + #{$bounce-offset});
 
         width: size(14, 13, 'medium');
         height: rem(68px, 'medium');
     }
-    
+
     @include respond-to('large') {
         top: calc(#{rem(30px, 'large')} + #{$bounce-offset});
 
         width: size(22, 21, 'large');
         height: rem(68px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         top: calc(#{rem(30px, 'extra-large')} + #{$bounce-offset});
 
@@ -91,20 +91,20 @@ $bounce-offset: 200px;
         padding-right: rem(30px, 'small');
         padding-left: rem(30px, 'small');
     }
-    
+
     @include respond-to('medium') {
         padding-right: rem(30px, 'medium');
         padding-left: rem(30px, 'medium');
     }
-    
+
     @include respond-to('large') {
         padding-right: rem(30px, 'large');
         padding-left: rem(30px, 'large');
     }
-    
-    @include respond-to('extra-large') {   
+
+    @include respond-to('extra-large') {
         padding-right: rem(30px, 'extra-large');
-        padding-left: rem(30px, 'extra-large');   
+        padding-left: rem(30px, 'extra-large');
     }
 }
 
@@ -134,17 +134,17 @@ $bounce-offset: 200px;
 
 .col-button-home {
     display: inline-block;
-    
+
     @include respond-to('medium') {
         width: rem(250px, 'medium');
         min-width: rem(250px, 'medium');
     }
-    
+
     @include respond-to('large') {
         width: rem(456px, 'large');
         min-width: rem(456px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         width: rem(675px, 'extra-large');
         min-width: rem(675px, 'extra-large');
@@ -166,22 +166,22 @@ $bounce-offset: 200px;
     height: 100%;
 
     // border: solid 1px red;
-    
+
     @include respond-to('medium') {
         opacity: 1;
         visibility: visible;
-        
+
         position: initial;
 
         width: rem(421px, 'medium');
         min-width: rem(421px, 'medium');
     }
-    
+
     @include respond-to('large') {
         width: rem(628px, 'large');
         min-width: rem(628px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         width: rem(848px, 'extra-large');
         min-width: rem(848px, 'extra-large');
@@ -210,21 +210,50 @@ $bounce-offset: 200px;
     }
 }
 
+.button-wrapper {
+    display: inline-block;
+
+    position: relative;
+}
+
+.active-indicator {
+    opacity: 0;
+
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    left: 0;
+
+    width: 4px;
+    height: 4px;
+
+    margin: auto;
+
+    background-color: $color-white;
+    border-radius: 50%;
+
+    transition: opacity 0.3s ease-in-out;
+
+    .is-active & {
+        opacity: 1;
+    }
+}
+
 .button-navigation {
     padding-bottom: rem(4px, 'extra-small');
 
     @include respond-to('small') {
         padding-bottom: rem(4px, 'small');
     }
-    
+
     @include respond-to('medium') {
         padding-bottom: rem(3px, 'medium');
     }
-    
+
     @include respond-to('large') {
         padding-bottom: rem(4px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         padding-bottom: rem(4px, 'extra-large');
     }
@@ -238,7 +267,7 @@ $bounce-offset: 200px;
     bottom: 0;
 
     text-align: right;
-    
+
     @include respond-to('medium') {
         display: inline-flex;
 
@@ -280,7 +309,7 @@ $bounce-offset: 200px;
         font-size: rem(20px, 'large');
         letter-spacing: rem(-0.4px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         padding-bottom: rem(2px, 'extra-large');
 
@@ -296,7 +325,7 @@ $bounce-offset: 200px;
     bottom: 0;
 
     height: rem(20px, 'extra-small');
-    
+
     margin: auto;
 
     @include respond-to('small') {

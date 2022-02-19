@@ -21,6 +21,22 @@ export default {
 
     mixins: [utils, scrollTrigger],
 
+    data() {
+        return {
+            sectionId: 'intro',
+            isActive: false,
+            activeInterval: [0.5, 2],
+        };
+    },
+
+    watch: {
+        isActive(isActive) {
+            if (isActive) {
+                this.$root.navigationScroll.setActiveSection(this.sectionId);
+            }
+        },
+    },
+
     mounted() {
         this.getBounds();
         this.setupEventListeners();
@@ -59,11 +75,17 @@ export default {
             return timeline;
         },
 
-        scrollThrough(progress) {
+        scrollThrough(progress, screenProgress) {
             if (progress > 1) {
                 this.$store.dispatch('navbar/enable');
             } else {
                 this.$store.dispatch('navbar/disable');
+            }
+
+            if (screenProgress > this.activeInterval[0] && screenProgress < this.activeInterval[1]) {
+                this.isActive = true;
+            } else {
+                this.isActive = false;
             }
         },
 

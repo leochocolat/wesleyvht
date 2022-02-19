@@ -17,9 +17,15 @@
 
                     <div ref="colButtons" class="col-buttons">
 
-                        <div v-for="(item, index) in staticCopy.sections" :key="index" class="button-container">
+                        <div v-for="(item, index) in staticCopy.sections" :key="index" ref="buttonNavigation" class="button-container" :class="activeSectionId === item.id ? 'is-active' : ''">
 
-                            <ButtonNavigation :id="item.id" :label="item.name" />
+                            <div class="button-wrapper">
+
+                                <ButtonNavigation :id="item.id" :label="item.name" />
+
+                                <span ref="activeIndicator" class="active-indicator" :data-section-id="item.id"></span>
+
+                            </div>
 
                         </div>
 
@@ -30,6 +36,7 @@
                         <div
                             v-for="(item, index) in data.socials"
                             :key="index"
+                            ref="buttonSocial"
                             class="social-container"
                         >
 

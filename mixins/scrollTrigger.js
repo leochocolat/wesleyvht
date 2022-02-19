@@ -67,7 +67,10 @@ export default {
         __scrollHandler() {
             const offsetTop = (ScrollManager.position + this.__bounds.dimensions.height) - this.__bounds.position.y;
             const progress = (offsetTop / this.__bounds.dimensions.height) / 2;
-            if (this.scrollThrough && typeof this.scrollThrough === 'function') this.scrollThrough(progress);
+
+            const screenProgress = (ScrollManager.position - this.__bounds.position.y + WindowResizeObserver.height) / WindowResizeObserver.height;
+
+            if (this.scrollThrough && typeof this.scrollThrough === 'function') this.scrollThrough(progress, screenProgress);
         },
 
         __resizeHandler() {

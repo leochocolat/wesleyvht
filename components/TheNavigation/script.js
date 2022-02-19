@@ -19,7 +19,7 @@ export default {
             isNavigationOpen: false,
             isHovering: false,
             isTransitioning: true,
-            hoveredElementIndex: false,
+            hoveredElementIndex: null,
         };
     },
 

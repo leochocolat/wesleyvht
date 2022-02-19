@@ -7,7 +7,7 @@ import device from '@/utils/device';
 // Components
 import Arrow from '@/assets/icons/arrow.svg?inline';
 
-const TRANSLATE = 7;
+const TRANSLATE = 8;
 
 export default {
     data() {
@@ -28,8 +28,8 @@ export default {
             this.timelineShow = new gsap.timeline();
             // this.timelineShow.fromTo(this.$refs.background, { scale: 0 }, { duration: 0.5, scale: 1, ease: 'back.out(1.5)' }, 0);
             // this.timelineShow.fromTo(this.$refs.arrow, { x: -TRANSLATE, y: TRANSLATE }, { duration: 0.6, x: 0, y: 0, ease: 'back.out(4)' }, 0.1);
-            this.timelineShow.fromTo(this.$refs.arrow, { x: -TRANSLATE, y: TRANSLATE }, { duration: 0.6, x: 0, y: 0, ease: 'back.out(5)' }, 0);
-            this.timelineShow.fromTo(this.$refs.arrow, { alpha: 0 }, { duration: 0.5, alpha: 1, ease: 'power2.out' }, 0.1);
+            this.timelineShow.fromTo(this.$refs.arrow, { alpha: 0 }, { duration: 0.5, alpha: 1, ease: 'power2.out' }, 0);
+            this.timelineShow.fromTo(this.$refs.arrow, { x: -TRANSLATE, y: TRANSLATE }, { duration: 0.6, x: 0, y: 0, ease: 'back.out(3)' }, 0.2);
             return this.timelineShow;
         },
 
