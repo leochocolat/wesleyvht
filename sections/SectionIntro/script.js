@@ -58,8 +58,33 @@ export default {
             const logoOffset = this.logoContainerBounds.x - this.mainContainerBounds.x;
             const letters = this.$refs.logo.querySelectorAll('.letter');
 
+            // const lettersDelayMin = 0.1;
+            // const lettersDelayMax = 0.5;
+
+            // const lettersDelay = [
+            //     Math.random() * (lettersDelayMax - lettersDelayMin) + lettersDelayMin,
+            //     Math.random() * (lettersDelayMax - lettersDelayMin) + lettersDelayMin,
+            //     Math.random() * (lettersDelayMax - lettersDelayMin) + lettersDelayMin,
+            //     Math.random() * (lettersDelayMax - lettersDelayMin) + lettersDelayMin,
+            // ];
+
+            // console.log(lettersDelay);
+
+            const lettersDelay = [
+                0.1806872531971454,
+                0.4218072678758741,
+                0.3267852513957519,
+                0.33281477872581067,
+            ];
+
             const timelineIntro = new gsap.timeline();
-            timelineIntro.to(letters, { duration: 0.1, alpha: 1, stagger: -0.5 }, 0);
+            timelineIntro.to(letters, {
+                duration: 0.1,
+                alpha: 1,
+                stagger: (index) => {
+                    return -index * lettersDelay[index];
+                },
+            }, 0);
 
             const timelineReveal = new gsap.timeline();
             timelineReveal.fromTo(this.$refs.logoContainer, { x: -logoOffset }, { x: 0, duration: 1.5, ease: 'power4.inOut' }, 0);
