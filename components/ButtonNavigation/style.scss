@@ -6,19 +6,19 @@
         font-size: rem(18px, 'small');
         letter-spacing: rem(-0.32px, 'small');
     }
-    
+
     @include respond-to('medium') {
         font-size: rem(20px, 'medium');
         letter-spacing: rem(-0.4px, 'medium');
     }
-    
+
     @include respond-to('large') {
-        font-size: rem(22px, 'large');
+        font-size: rem(20px, 'large');
         letter-spacing: rem(-0.4px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
-        font-size: rem(22px, 'extra-large');
+        font-size: rem(20px, 'extra-large');
         letter-spacing: rem(-0.4px, 'extra-large');
     }
 }

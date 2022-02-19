@@ -15,7 +15,7 @@
 
                     <div v-for="(item, index) in staticCopy.sections" ref="buttonNavigation" :key="index" class="button-container nav-item">
 
-                        <ButtonNavigation :id="item.id" :label="item.name" @click="clickHandler" />
+                        <ButtonNavigation :id="item.id" :label="item.name" class="button-navigation" @click="clickHandler" />
 
                     </div>
 

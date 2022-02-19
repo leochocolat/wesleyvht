@@ -27,6 +27,7 @@
 
 .nav-item {
     opacity: 0;
+    visibility: hidden;
 }
 
 .row {
@@ -93,6 +94,8 @@
 .button-container {
     margin-right: rem(40px, 'extra-small');
 
+    pointer-events: none;
+
     @include respond-to('small') {
         margin-right: rem(40px, 'small');
     }
@@ -149,6 +152,8 @@
 .button-navigation {
     padding-bottom: rem(5px, 'extra-small');
 
+    pointer-events: all;
+
     @include respond-to('small') {
         padding-bottom: rem(5px, 'small');
     }
@@ -190,6 +195,8 @@
 }
 
 .social-container {
+    pointer-events: none;
+
     &:nth-child(1) {
         @include respond-to('medium') {
             width: rem(45px, 'medium');
@@ -238,6 +245,8 @@
 .button-social {
     font-size: rem(18px, 'extra-small');
     letter-spacing: rem(-0.32px, 'extra-small');
+
+    pointer-events: all;
 
     @include respond-to('small') {
         font-size: rem(18px, 'small');
