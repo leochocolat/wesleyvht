@@ -57,11 +57,14 @@
 }
 
 .text {
+    will-change: transform;
+
     position: relative;
-    // border: solid 1px red;
 }
 
 .background {
+    will-change: transform;
+
     position: absolute;
     top: 0;
     left: 0;

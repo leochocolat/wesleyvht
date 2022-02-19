@@ -1,24 +1,40 @@
 // Vendor
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { Pane } from 'tweakpane';
 
 // Utils
 import WindowResizeObserver from '@/utils/WindowResizeObserver';
 import math from '@/utils/math';
+import easings from '@/utils/easings';
 
 // Components
 import MediaGallery from '@/components/MediaGallery';
 import CursorSlider from '@/components/CursorSlider';
 import ScrollManager from '@/utils/ScrollManager';
+import device from '@/utils/device';
+
+// Mixins
+import scrollTrigger from '@/mixins/scrollTrigger';
 
 export default {
     props: ['index', 'medias'],
 
+    mixins: [scrollTrigger],
+
     mounted() {
+        if (device.isTouch()) return;
+
         this.cursorPosition = { x: 0, y: 0 };
 
-        this.cursorBackgroundPosition = { x: 0, y: 0 };
-        this.cursorTextPosition = { x: 0, y: 0 };
+        this.cursorBackgroundPosition = {
+            current: { x: 0, y: 0 },
+            target: { x: 0, y: 0 },
+        };
+
+        this.cursorTextPosition = {
+            current: { x: 0, y: 0 },
+            target: { x: 0, y: 0 },
+        };
 
         this.cursorBackgroundVelocity = { x: 0, y: 0 };
         this.cursorTextVelocity = { x: 0, y: 0 };
@@ -29,13 +45,20 @@ export default {
         };
 
         this.settings = {
+            attractionArea: 0.6,
+            attractionStrength: 0.1,
+            snapArea: 0.5,
+            snapAreaMax: 1,
+            snapAreaMin: 0.5,
             background: {
                 lerp: 0.02,
                 bounce: 0.81,
+                attractionStrength: 1,
             },
             text: {
                 lerp: 0.02,
                 bounce: 0.804,
+                attractionStrength: 0.95,
             },
         };
 
@@ -46,6 +69,8 @@ export default {
     },
 
     beforeDestroy() {
+        if (device.isTouch()) return;
+
         this.removeEventListeners();
     },
 
@@ -60,35 +85,61 @@ export default {
             this.cursorBounds.y += ScrollManager.position;
         },
 
-        updateCursorPosition() {
-            console.log(this.settings.background.lerp);
-
+        checkDistance() {
             const offsetCursor = {
-                x: this.bounds.x - this.cursorBounds.x,
-                y: this.bounds.y - this.cursorBounds.y,
+                x: this.mousePosition.x - this.bounds.x + (this.bounds.x - this.cursorBounds.x) - this.cursorBounds.width / 2,
+                y: this.mousePosition.y - this.bounds.y + (this.bounds.y - this.cursorBounds.y) - this.cursorBounds.height / 2 + ScrollManager.position,
             };
 
-            this.cursorPosition.x = this.mousePosition.x - this.bounds.x + offsetCursor.x - this.cursorBounds.width / 2;
-            this.cursorPosition.y = this.mousePosition.y - this.bounds.y + offsetCursor.y - this.cursorBounds.height / 2 + ScrollManager.position;
+            this.cursorPosition.x = offsetCursor.x;
+            this.cursorPosition.y = offsetCursor.y;
 
-            const previousCursorBackgroundPosition = { x: this.cursorBackgroundPosition.x, y: this.cursorBackgroundPosition.y };
+            const distance = Math.sqrt(offsetCursor.x * offsetCursor.x + offsetCursor.y * offsetCursor.y);
+            const hyp = Math.sqrt((this.bounds.width * this.bounds.width) + (this.bounds.height * this.bounds.height));
 
-            this.cursorBackgroundPosition.x = math.lerp(this.cursorBackgroundPosition.x + (this.cursorBackgroundVelocity.x * this.settings.background.bounce), this.cursorPosition.x, this.settings.background.lerp);
-            this.cursorBackgroundPosition.y = math.lerp(this.cursorBackgroundPosition.y + (this.cursorBackgroundVelocity.y * this.settings.background.bounce), this.cursorPosition.y, this.settings.background.lerp);
+            if (Math.abs(offsetCursor.x) > this.bounds.width / 2 * this.settings.snapArea || Math.abs(offsetCursor.y) > this.bounds.height / 2 * this.settings.snapArea) {
+                this.settings.snapArea = this.settings.snapAreaMin;
 
-            this.cursorBackgroundVelocity.x = this.cursorBackgroundPosition.x - previousCursorBackgroundPosition.x;
-            this.cursorBackgroundVelocity.y = this.cursorBackgroundPosition.y - previousCursorBackgroundPosition.y;
+                const attraction = easings.easeInCirc(math.clamp(1 - distance / hyp * this.settings.attractionArea, 0, 1));
+                const angle = math.angle(offsetCursor, { x: 0, y: 0 });
+                const attractionStrength = this.bounds.width * this.settings.attractionStrength;
 
-            const previousCursorTextPosition = { x: this.cursorTextPosition.x, y: this.cursorTextPosition.y };
+                this.cursorBackgroundPosition.target.x = attraction * attractionStrength * this.settings.background.attractionStrength * Math.cos(angle);
+                this.cursorBackgroundPosition.target.y = attraction * attractionStrength * this.settings.background.attractionStrength * Math.sin(angle);
 
-            this.cursorTextPosition.x = math.lerp(this.cursorTextPosition.x + (this.cursorTextVelocity.x * this.settings.text.bounce), this.cursorPosition.x, this.settings.text.lerp);
-            this.cursorTextPosition.y = math.lerp(this.cursorTextPosition.y + (this.cursorTextVelocity.y * this.settings.text.bounce), this.cursorPosition.y, this.settings.text.lerp);
+                this.cursorTextPosition.target.x = attraction * attractionStrength * this.settings.text.attractionStrength * Math.cos(angle);
+                this.cursorTextPosition.target.y = attraction * attractionStrength * this.settings.text.attractionStrength * Math.sin(angle);
+            } else {
+                this.cursorBackgroundPosition.target.x = this.cursorPosition.x;
+                this.cursorBackgroundPosition.target.y = this.cursorPosition.y;
 
-            this.cursorTextVelocity.x = this.cursorTextPosition.x - previousCursorTextPosition.x;
-            this.cursorTextVelocity.y = this.cursorTextPosition.y - previousCursorTextPosition.y;
+                this.cursorTextPosition.target.x = this.cursorPosition.x;
+                this.cursorTextPosition.target.y = this.cursorPosition.y;
 
-            this.$refs.cursor.$refs.background.style.transform = `translate(${this.cursorBackgroundPosition.x}px, ${this.cursorBackgroundPosition.y}px)`;
-            this.$refs.cursor.$refs.text.style.transform = `translate(${this.cursorTextPosition.x}px, ${this.cursorTextPosition.y}px)`;
+                this.settings.snapArea = this.settings.snapAreaMax;
+            }
+        },
+
+        updateCursorPosition() {
+            const previousCursorBackgroundPosition = { x: this.cursorBackgroundPosition.current.x, y: this.cursorBackgroundPosition.current.y };
+
+            this.cursorBackgroundPosition.current.x = math.lerp(this.cursorBackgroundPosition.current.x + (this.cursorBackgroundVelocity.x * this.settings.background.bounce), this.cursorBackgroundPosition.target.x, this.settings.background.lerp);
+            this.cursorBackgroundPosition.current.y = math.lerp(this.cursorBackgroundPosition.current.y + (this.cursorBackgroundVelocity.y * this.settings.background.bounce), this.cursorBackgroundPosition.target.y, this.settings.background.lerp);
+
+            this.cursorBackgroundVelocity.x = this.cursorBackgroundPosition.current.x - previousCursorBackgroundPosition.x;
+            this.cursorBackgroundVelocity.y = this.cursorBackgroundPosition.current.y - previousCursorBackgroundPosition.y;
+
+            const previousCursorTextPosition = { x: this.cursorTextPosition.current.x, y: this.cursorTextPosition.current.y };
+
+            this.cursorTextPosition.current.x = math.lerp(this.cursorTextPosition.current.x + (this.cursorTextVelocity.x * this.settings.text.bounce), this.cursorTextPosition.target.x, this.settings.text.lerp);
+            this.cursorTextPosition.current.y = math.lerp(this.cursorTextPosition.current.y + (this.cursorTextVelocity.y * this.settings.text.bounce), this.cursorTextPosition.target.y, this.settings.text.lerp);
+
+            this.cursorTextVelocity.x = this.cursorTextPosition.current.x - previousCursorTextPosition.x;
+            this.cursorTextVelocity.y = this.cursorTextPosition.current.y - previousCursorTextPosition.y;
+
+            // Apply transform
+            this.$refs.cursor.$refs.background.style.transform = `translate(${this.cursorBackgroundPosition.current.x}px, ${this.cursorBackgroundPosition.current.y}px)`;
+            this.$refs.cursor.$refs.text.style.transform = `translate(${this.cursorTextPosition.current.x}px, ${this.cursorTextPosition.current.y}px)`;
         },
 
         setupEventListeners() {
@@ -113,6 +164,9 @@ export default {
         },
 
         tickHandler() {
+            if (!this.isInView) return;
+
+            this.checkDistance();
             this.updateCursorPosition();
         },
 
@@ -121,6 +175,8 @@ export default {
          */
         setupDebugger() {
             // this.debugger = new Pane({ title: 'Cursor' });
+
+            // this.debugger.addInput(this.settings, 'attractionStrength', { min: 0, max: 0.5 });
 
             // const bg = this.debugger.addFolder({ title: 'Background' });
             // bg.addInput(this.settings.background, 'lerp', { min: 0, max: 0.2 });
