@@ -52,6 +52,10 @@ export default {
         this.label = this.state;
     },
 
+    mounted() {
+        // this.$root.canvas.contactCard = this.$el;
+    },
+
     methods: {
         copyToClipBoard() {
             navigator.clipboard.writeText(this.data.email);

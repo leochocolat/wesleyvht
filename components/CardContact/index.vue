@@ -1,5 +1,5 @@
 <template>
-    <div class="card-availability" @mouseenter="mouseenterHandler" @mouseleave="mouseleaveHandler" @click="clickHandler">
+    <div class="js-card-contact card-availability" @mouseenter="mouseenterHandler" @mouseleave="mouseleaveHandler" @click="clickHandler">
 
         <div class="container">
 
