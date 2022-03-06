@@ -13,7 +13,15 @@ export default {
     data() {
         return {
             state: '',
+            isHover: false,
         };
+    },
+
+    watch: {
+        isHover(isHover) {
+            if (isHover) this.mouseenterHandler();
+            else this.mouseleaveHandler();
+        },
     },
 
     mounted() {

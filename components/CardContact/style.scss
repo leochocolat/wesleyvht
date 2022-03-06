@@ -9,6 +9,8 @@
 
     border-radius: 12px;
 
+    cursor: pointer;
+
     @include respond-to('small') {
         padding: rem(30px, 'small');
     }
@@ -56,13 +58,14 @@
 }
 
 .email {
+    display: block;
     // @include selectable();
 }
 
-.arrow-single {
+.button-arrow-wrapper {
     margin-top: rem(77px, 'extra-small');
 
-    background-color: $color-light-grey-2;
+    pointer-events: none;
 
     @include respond-to('small') {
         position: absolute;
@@ -71,4 +74,19 @@
 
         margin-top: 0;
     }
+
+    &::v-deep {
+        .arrow-container {
+            right: auto;
+            left: 0;
+        }
+
+        .background {
+            background-color: $color-light-grey-2;
+        }
+    }
+}
+
+.button-placeholder {
+    opacity: 0;
 }

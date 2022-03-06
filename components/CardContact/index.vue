@@ -1,15 +1,17 @@
 <template>
-    <div class="card-availability">
+    <div class="card-availability" @mouseenter="mouseenterHandler" @mouseleave="mouseleaveHandler" @click="clickHandler">
 
         <div class="container">
 
             <span class="card-title paragraph-1">{{ staticCopy.contact.email }}</span>
 
-            <span class="email heading-6">
-                {{ data.email }}
+            <span ref="email" class="email heading-6">
+                {{ label }}
             </span>
 
-            <ArrowSingle />
+            <ButtonArrowWrapper ref="arrow">
+                <span class="button-placeholder paragraph-2">placeholder</span>
+            </ButtonArrowWrapper>
 
         </div>
 
