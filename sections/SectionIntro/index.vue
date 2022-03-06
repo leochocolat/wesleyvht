@@ -1,5 +1,5 @@
 <template>
-    <section class="section-intro">
+    <section class="section-intro" @mousemove="mousemoveHandler">
 
         <div ref="mainContainer" class="main-container">
 
@@ -19,7 +19,6 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -32,15 +31,32 @@
 
                     </div>
 
-                    <div ref="imageContainer" class="image-container">
+                    <!-- <div ref="imageContainer" class="image-container">
 
                         <ImageRenderer
-                            class="image"
+                            class="image is-active"
                             :source="data.images[0].fields.file.url"
                             :alt="data.images[0].fields.title"
                             :sizes="[500, 1000, 1200, 1200, 1600]"
                             :width="data.images[0].fields.file.details.image.width"
                             :height="data.images[0].fields.file.details.image.height"
+                            :low="10"
+                        />
+
+                    </div> -->
+
+                    <div ref="imageContainer" class="image-container">
+
+                        <ImageRenderer
+                            v-for="(item, index) in data.images"
+                            :key="index"
+                            class="image"
+                            :class="activeImageIndex === index ? 'is-active' : ''"
+                            :source="item.fields.file.url"
+                            :alt="item.fields.title"
+                            :sizes="[500, 1000, 1200, 1200, 1600]"
+                            :width="item.fields.file.details.image.width"
+                            :height="item.fields.file.details.image.height"
                             :low="10"
                         />
 

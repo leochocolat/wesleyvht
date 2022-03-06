@@ -15,6 +15,7 @@ import Logo from '@/assets/icons/logo.svg?inline';
 import WindowResizeObserver from '@/utils/WindowResizeObserver';
 import math from '@/utils/math';
 import mapRange from '@/utils/math/mapRange';
+import device from '@/utils/device';
 
 export default {
     props: ['data'],
@@ -26,6 +27,9 @@ export default {
             sectionId: 'intro',
             isActive: false,
             activeInterval: [0.5, 2],
+            allowMouseInteraction: false,
+            activeImageIndex: 0,
+            sliceSize: 7,
         };
     },
 
@@ -96,6 +100,7 @@ export default {
 
             timeline.add(timelineIntro);
             timeline.add(timelineReveal);
+            timeline.set(this, { allowMouseInteraction: true });
 
             return timeline;
         },
@@ -148,7 +153,7 @@ export default {
         },
 
         updateStickyPosition() {
-            if (this.isSmall) return;
+            if (this.isSmall || this.isTouch) return;
 
             const target = this.height - (this.bounds.bottom - this.stickyContainerBounds.bottom) - this.stickyContainerBounds.height;
             const current = this.stickyContainerBounds.top - ScrollManager.position;
@@ -184,6 +189,14 @@ export default {
             if (this.isSmall || !this.isInView) return;
 
             this.updateStickyPosition();
+        },
+
+        mousemoveHandler(e) {
+            if (!this.allowMouseInteraction || this.isTouch) return;
+            const positionX = e.clientX;
+            const slice = WindowResizeObserver.width / this.sliceSize;
+            const index = Math.floor(positionX / slice);
+            this.activeImageIndex = index % this.data.images.length;
         },
     },
 
