@@ -41,10 +41,11 @@ export default {
 
     watch: {
         state(state) {
+            gsap.killTweensOf(this.$refs.email);
             const timeline = new gsap.timeline();
-            timeline.to(this.$refs.email, { duration: 0.2, alpha: 0, ease: 'sine.inOut' });
+            timeline.to(this.$refs.email, { duration: 0.1, alpha: 0, ease: 'sine.inOut' });
             timeline.set(this, { label: state });
-            timeline.to(this.$refs.email, { duration: 0.2, alpha: 1, ease: 'sine.inOut' });
+            timeline.to(this.$refs.email, { duration: 0.1, alpha: 1, ease: 'sine.inOut' });
         },
     },
 
@@ -68,11 +69,13 @@ export default {
         mouseenterHandler() {
             this.isHovered = true;
             this.$refs.arrow.isHover = true;
+            this.$root.canvas.showGradient();
         },
 
         mouseleaveHandler() {
             this.isHovered = false;
             this.$refs.arrow.isHover = false;
+            this.$root.canvas.hideGradient();
         },
 
         clickHandler() {
