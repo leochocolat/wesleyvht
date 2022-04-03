@@ -78,7 +78,11 @@ export default {
             this.$root.canvas.hideGradient();
         },
 
-        clickHandler() {
+        clickHandler(e) {
+            this.$root.canvas.createParticle({ x: e.clientX, y: e.clientY });
+
+            if (this.isCopied) return;
+
             this.isCopied = true;
             this.copyToClipBoard();
             this.resetTimeout = setTimeout(this.reset, 1500);

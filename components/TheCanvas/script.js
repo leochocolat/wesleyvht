@@ -2,6 +2,9 @@
 import { Pane } from 'tweakpane';
 import { gsap } from 'gsap';
 
+// Modules
+import Particle from '@/utils/Particle';
+
 // Utils
 import WindowResizeObserver from '@/utils/WindowResizeObserver';
 import ScrollManager from '@/utils/ScrollManager';
@@ -29,7 +32,7 @@ export default {
         showGradient() {
             this.timelineHideGradient?.kill();
             this.timelineShowGradient = new gsap.timeline();
-            this.timelineShowGradient.to(this.settings.mouseGradient, { duration: 1, radius: 0.25, ease: 'power3.out' }, 0);
+            this.timelineShowGradient.to(this.settings.mouseGradient, { duration: 1, radius: 0.5, ease: 'power3.out' }, 0);
             this.timelineShowGradient.to(this.settings.mouseGradient, { duration: 1, opacity: 0.5, ease: 'sine.inOut' }, 0);
         },
 
@@ -40,11 +43,23 @@ export default {
             this.timelineHideGradient.to(this.settings.mouseGradient, { duration: 0.5, opacity: 0, ease: 'sine.inOut' }, 0);
         },
 
+        createParticle(position) {
+            const image = this.particleImage;
+            const particle = new Particle({
+                root: this,
+                image,
+                position,
+            });
+            this.particles.push(particle);
+        },
+
         /**
          * Private
          */
         setup() {
             this.contactCard = document.querySelector('.js-card-contact');
+
+            this.particles = [];
 
             this.mousePosition = { x: 0, y: 0 };
 
@@ -81,11 +96,16 @@ export default {
             this.ctx2 = this.canvas2.getContext('2d');
             this.ctx3 = this.canvas3.getContext('2d');
 
+            this.particleImage = new Image();
+            this.particleImage.src = './images/heart.svg';
+
             this.setupEventListeners();
             this.getBounds();
             // this.createWhiteNoiseTexture();
 
             this.setupDebugger();
+
+            // this.createParticle();
         },
 
         getBounds() {
@@ -108,11 +128,19 @@ export default {
 
         update() {
             this.updateMouseGradientPosition();
+            this.updateParticles();
         },
 
         updateMouseGradientPosition() {
             this.settings.mouseGradient.position.x = math.lerp(this.settings.mouseGradient.position.x, this.mousePosition.x, this.settings.mouseGradient.lerp);
             this.settings.mouseGradient.position.y = math.lerp(this.settings.mouseGradient.position.y, this.mousePosition.y, this.settings.mouseGradient.lerp);
+        },
+
+        updateParticles() {
+            for (let i = 0; i < this.particles.length; i++) {
+                const particle = this.particles[i];
+                particle.update();
+            }
         },
 
         // Global
@@ -127,6 +155,10 @@ export default {
             this.ctx.globalCompositeOperation = 'source-atop';
 
             this.ctx.drawImage(this.canvas2, 0, 0, this.width, this.height);
+
+            this.ctx.globalCompositeOperation = 'source-over';
+
+            this.drawParticles(this.ctx);
 
             this.ctx.restore();
         },
@@ -196,6 +228,13 @@ export default {
             ctx.closePath();
 
             ctx.restore();
+        },
+
+        drawParticles(ctx) {
+            for (let i = 0; i < this.particles.length; i++) {
+                const particle = this.particles[i];
+                particle.draw(ctx);
+            }
         },
 
         fillRoundedRect(ctx, x, y, width, height, radius) {
