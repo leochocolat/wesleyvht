@@ -1,9 +1,6 @@
 <template>
     <div class="default">
 
-        <!-- Canvas -->
-        <TheCanvas />
-
         <!-- Navigation -->
         <TheNavigationScroll :data="data.fields.header.fields" />
 
@@ -17,6 +14,9 @@
             <Nuxt />
 
         </ScrollContainer>
+
+        <!-- Canvas -->
+        <TheCanvas />
 
         <!-- Debug -->
         <DebugMediaQueries />

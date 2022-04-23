@@ -2,11 +2,15 @@
 import { mapGetters } from 'vuex';
 import { gsap } from 'gsap';
 
+// Utils
+import device from '@/utils/device';
+
 // Mixons
 import utils from '@/mixins/utils';
 
 // Components
 import ButtonArrowWrapper from '@/components/ButtonArrowWrapper';
+import WindowResizeObserver from '@/utils/WindowResizeObserver';
 
 export default {
     mixins: [utils],
@@ -54,38 +58,79 @@ export default {
     },
 
     mounted() {
+        this.mousePosition = { x: 0, y: 0 };
+
+        this.getBounds();
+        this.setupEventListeners();
         // this.$root.canvas.contactCard = this.$el;
+    },
+
+    beforeDestroy() {
+        this.removeEventListeners();
+        clearInterval(this.particleInterval);
     },
 
     methods: {
         copyToClipBoard() {
-            navigator.clipboard.writeText(this.data.email);
+            // Only works in secured context
+            if (navigator.clipboard) navigator.clipboard.writeText(this.data.email);
         },
 
         reset() {
             this.isCopied = false;
         },
 
-        mouseenterHandler() {
+        getBounds() {
+            this.particleBounds = this.$refs.particlePlaceholder.getBoundingClientRect();
+        },
+
+        setupEventListeners() {
+            WindowResizeObserver.addEventListener('resize', this.resizeHandler);
+            if (!device.isTouch()) window.addEventListener('mousemove', this.mousemoveHandler);
+        },
+
+        removeEventListeners() {
+            WindowResizeObserver.removeEventListener('resize', this.resizeHandler);
+            if (!device.isTouch()) window.removeEventListener('mousemove', this.mousemoveHandler);
+        },
+
+        mouseenterHandler(e) {
             this.isHovered = true;
             this.$refs.arrow.isHover = true;
-            this.$root.canvas.showGradient();
+
+            clearInterval(this.particleInterval);
+
+            this.particleInterval = setInterval(() => {
+                this.$root.canvas.createParticle(this.mousePosition, { size: this.particleBounds.width, opacity: 0.2 });
+            }, 1000);
         },
 
         mouseleaveHandler() {
             this.isHovered = false;
             this.$refs.arrow.isHover = false;
-            this.$root.canvas.hideGradient();
+
+            clearInterval(this.particleInterval);
+        },
+
+        mousemoveHandler(e) {
+            this.mousePosition.x = e.clientX;
+            this.mousePosition.y = e.clientY;
         },
 
         clickHandler(e) {
-            this.$root.canvas.createParticle({ x: e.clientX, y: e.clientY });
+            clearInterval(this.particleInterval);
+
+            this.$root.canvas.createParticles({ x: e.clientX, y: e.clientY }, { size: this.particleBounds.width, opacity: 1 });
 
             if (this.isCopied) return;
 
             this.isCopied = true;
             this.copyToClipBoard();
             this.resetTimeout = setTimeout(this.reset, 1500);
+        },
+
+        resizeHandler() {
+            this.getBounds();
         },
     },
 

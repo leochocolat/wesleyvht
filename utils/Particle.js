@@ -10,18 +10,21 @@ export default class Particle {
     constructor(options = {}) {
         this._root = options.root;
         this._image = options.image;
+        this._size = options.size;
+        this._maxOpacity = options.opacity;
         this._position = options.position ? Vector.fromObject(options.position) : new Vector(0, 0);
         this._velocity = new Vector(this.getRandomArbitrary(-1, 1), this.getRandomArbitrary(-2, -1));
         this._acceleration = new Vector(0, 0);
         this._randomSteering = new Vector(0, 0);
         this._edgeRepulsionSteering = new Vector(0, 0);
         this._rotation = { target: 0, current: 0 };
-        this._maxLife = 40;
+        this._maxLife = this.getRandomArbitrary(40, 80);
         this._life = 0;
         this._perception = 30;
-        this._opacity = 1;
         this._scale = 1;
         this._maxForce = 1;
+        this._opacity = 1;
+        this._isDead = false;
     }
 
     /**
@@ -31,25 +34,29 @@ export default class Particle {
         return this._position;
     }
 
+    get isDead() {
+        return this._isDead;
+    }
+
     /**
      * Public
      */
     draw(ctx) {
         ctx.save();
 
-        ctx.globalAlpha = this._opacity;
+        ctx.globalAlpha = this._opacity * this._maxOpacity;
 
         ctx.translate(this._position.x, this._position.y);
         ctx.rotate(this._rotation.current);
         ctx.scale(this._scale, this._scale);
 
-        ctx.drawImage(this._image, 0, 0, 15, 15);
+        ctx.drawImage(this._image, -this._size / 2, -this._size / 2, this._size, this._size);
 
         ctx.restore();
     }
 
     update() {
-        if (this._life > this._maxLife) return;
+        if (this._isDead) return;
 
         this.updateOpacity();
         this.updateRotation();
@@ -65,6 +72,8 @@ export default class Particle {
         this._velocity.add(this._acceleration);
 
         this._life++;
+
+        this._isDead = this._life > this._maxLife;
     }
 
     /**
@@ -76,7 +85,7 @@ export default class Particle {
 
         if (lifeProgress > 0) {
             this._opacity = easings.easeInCirc(1 - lifeProgress);
-            this._opacity = 1 - lifeProgress;
+            this._opacity = Math.max(0, 1 - lifeProgress);
         };
     }
 
@@ -94,7 +103,7 @@ export default class Particle {
 
     steerRandomly() {
         // Random force
-        const force = 1;
+        const force = 1.5;
         this._randomSteering.x = this.getRandomArbitrary(-force, force);
         this._randomSteering.y = this.getRandomArbitrary(-0.5, 0);
 
@@ -111,7 +120,7 @@ export default class Particle {
         const distanceLeft = this._position.x - left;
         const distanceRight = right - this._position.x;
 
-        const maxForce = 2;
+        const maxForce = 0.5;
 
         if (distanceLeft <= this._perception) {
             const force = (1 - distanceLeft / width) * maxForce;

@@ -15,6 +15,8 @@
 
         </div>
 
+        <div ref="particlePlaceholder" class="particle-placeholder"></div>
+
     </div>
 </template>
 
