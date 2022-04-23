@@ -43,7 +43,7 @@ export default {
         createParticles(position, { size, opacity }) {
             const image = this.particleImage;
 
-            const radius = 0;
+            const radius = this.settings.particles.spawningAreaSize;
 
             for (let i = 0; i < this.settings.particles.amount; i++) {
                 const offset = { x: 0, y: 0 };
@@ -81,6 +81,7 @@ export default {
                 particles: {
                     amount: 5,
                     opacityRandomness: 0.3,
+                    spawningAreaSize: 0,
                 },
             };
 
@@ -196,6 +197,7 @@ export default {
             const particles = this.debugger.addFolder({ title: 'Particles' });
             particles.addInput(this.settings.particles, 'amount', { min: 0, max: 50, step: 1 });
             particles.addInput(this.settings.particles, 'opacityRandomness', { min: 0, max: 0.5 });
+            particles.addInput(this.settings.particles, 'spawningAreaSize', { min: 0, max: 100 });
 
             this.debugger.element.style.zIndex = 10000;
             this.debugger.element.style.position = 'fixed';
