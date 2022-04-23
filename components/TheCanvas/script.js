@@ -54,6 +54,8 @@ export default {
                 position.x += offset.x - radius / 4;
                 position.y += offset.y;
 
+                opacity *= 1 - Math.random() * this.settings.particles.opacityRandomness;
+
                 const particle = new Particle({
                     root: this,
                     image,
@@ -78,6 +80,7 @@ export default {
                 dpr: 2,
                 particles: {
                     amount: 5,
+                    opacityRandomness: 0.3,
                 },
             };
 
@@ -192,6 +195,7 @@ export default {
 
             const particles = this.debugger.addFolder({ title: 'Particles' });
             particles.addInput(this.settings.particles, 'amount', { min: 0, max: 50, step: 1 });
+            particles.addInput(this.settings.particles, 'opacityRandomness', { min: 0, max: 0.5 });
 
             this.debugger.element.style.zIndex = 10000;
             this.debugger.element.style.position = 'fixed';
