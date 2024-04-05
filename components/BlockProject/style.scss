@@ -322,11 +322,11 @@
     border-radius: 8px;
 
     @include respond-to('large') {
-        padding-bottom: aspect-ratio(796px, 828px);
+        padding-bottom: aspect-ratio(796px, 796px);
     }
 
     @include respond-to('extra-large') {
-        padding-bottom: aspect-ratio(1075px, 1120px);
+        padding-bottom: aspect-ratio(1075px, 1075px);
     }
 }
 
