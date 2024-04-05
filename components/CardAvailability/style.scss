@@ -85,16 +85,12 @@
 
     color: $color-grey;
 
-    border-top: solid 1px $color-black;
-
     @include respond-to('small') {
         display: initial;
 
         padding-top: 0;
 
         color: $color-black;
-
-        border-top: none;
     }
 }
 
