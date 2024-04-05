@@ -2,7 +2,7 @@
     <div class="default">
 
         <!-- Navigation -->
-        <TheNavigationScroll :data="data.fields.header.fields" />
+        <!-- <TheNavigationScroll :data="data.fields.header.fields" /> -->
 
         <!-- Scroll Container -->
         <ScrollContainer>

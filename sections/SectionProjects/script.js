@@ -21,7 +21,7 @@ export default {
     watch: {
         isActive(isActive) {
             if (isActive) {
-                this.$root.navigationScroll.setActiveSection(this.sectionId);
+                this.$root.navigationScroll?.setActiveSection(this.sectionId);
             }
         },
     },
