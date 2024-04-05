@@ -8,6 +8,7 @@
             muted
             playsinline
             loop
+            @canplay="canplayHandler"
         ></video>
 
     </div>

@@ -3,7 +3,7 @@ import ImageRenderer from '@/components/ImageRenderer';
 import VideoRenderer from '@/components/VideoRenderer';
 
 export default {
-    props: ['data', 'isActive'],
+    props: ['data', 'isActive', 'autoplay'],
 
     watch: {
         isActive(isActive) {
@@ -17,11 +17,25 @@ export default {
         if (this.isActive) {
             if (this.$refs.videoRenderer) this.$refs.videoRenderer.play();
         }
+
+        if (this.autoplay) {
+            if (this.$refs.videoRenderer) this.$refs.videoRenderer.play();
+        }
     },
 
     computed: {
         isVideo() {
             return this.data.fields.file.contentType.includes('video');
+        },
+    },
+
+    methods: {
+        play() {
+            this.$refs.videoRenderer?.play();
+        },
+
+        pause() {
+            this.$refs.videoRenderer?.pause();
         },
     },
 

@@ -45,9 +45,9 @@
 
                     </div> -->
 
-                    <div ref="imageContainer" class="image-container">
+                    <div ref="imageContainer" class="image-container" :class="{ 'is-enabled': allowMouseInteraction }" @mouseenter="mouseenterHandler" @mouseleave="mouseleaveHandler">
 
-                        <ImageRenderer
+                        <!-- <ImageRenderer
                             v-for="(item, index) in data.images"
                             :key="index"
                             class="image"
@@ -58,7 +58,9 @@
                             :width="item.fields.file.details.image.width"
                             :height="item.fields.file.details.image.height"
                             :low="10"
-                        />
+                        /> -->
+
+                        <Media ref="media" :autoplay="true" :data="data.video" class="is-active" :is-active="true" />
 
                     </div>
 

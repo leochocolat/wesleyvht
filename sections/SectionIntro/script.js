@@ -9,13 +9,14 @@ import scrollTrigger from '@/mixins/scrollTrigger';
 import ScrollManager from '@/utils/ScrollManager';
 import Breakpoints from '@/utils/Breakpoints';
 import easings from '@/utils/easings';
-
-// Components
-import Logo from '@/assets/icons/logo.svg?inline';
 import WindowResizeObserver from '@/utils/WindowResizeObserver';
 import math from '@/utils/math';
 import mapRange from '@/utils/math/mapRange';
 import device from '@/utils/device';
+
+// Components
+import Logo from '@/assets/icons/logo.svg?inline';
+import Media from '@/components/Media';
 
 export default {
     props: ['data'],
@@ -72,8 +73,6 @@ export default {
             //     Math.random() * (lettersDelayMax - lettersDelayMin) + lettersDelayMin,
             // ];
 
-            // console.log(lettersDelay);
-
             const lettersDelay = [
                 0.1806872531971454,
                 0.4218072678758741,
@@ -82,13 +81,11 @@ export default {
             ];
 
             const timelineIntro = new gsap.timeline();
-            timelineIntro.to(letters, {
-                duration: 0.1,
-                alpha: 1,
-                stagger: (index) => {
-                    return -index * lettersDelay[index];
-                },
-            }, 0);
+            let delay = 0;
+            for (let i = 0; i < letters.length; i++) {
+                delay += lettersDelay[i];
+                timelineIntro.to(letters[i], { duration: 0.1, opacity: 1 }, delay);
+            }
 
             const timelineReveal = new gsap.timeline();
             timelineReveal.fromTo(this.$refs.logoContainer, { x: -logoOffset }, { x: 0, duration: 1.5, ease: 'power4.inOut' }, 0);
@@ -198,9 +195,22 @@ export default {
             const index = Math.floor(positionX / slice);
             this.activeImageIndex = index % this.data.images.length;
         },
+
+        mouseenterHandler() {
+            if (!this.allowMouseInteraction || this.isTouch) return;
+
+            this.$refs.media.pause();
+        },
+
+        mouseleaveHandler() {
+            if (!this.allowMouseInteraction || this.isTouch) return;
+
+            this.$refs.media.play();
+        },
     },
 
     components: {
         Logo,
+        Media,
     },
 };
