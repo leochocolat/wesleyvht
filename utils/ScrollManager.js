@@ -194,10 +194,11 @@ class ScrollManager extends EventDispatcher {
 
         if (this._isSmooth) return;
 
-        if (this._isScheduledAnimationFrame) return;
+        // if (this._isScheduledAnimationFrame) return;
 
-        this._isScheduledAnimationFrame = true;
-        requestAnimationFrame(this._scrollDebounceHandler);
+        // this._isScheduledAnimationFrame = true;
+        // requestAnimationFrame(this._scrollDebounceHandler);
+        this._scrollDebounceHandler();
     }
 
     _scrollDebounceHandler() {
@@ -206,10 +207,10 @@ class ScrollManager extends EventDispatcher {
             delta: this._delta,
         });
 
-        if (this._scrollTimeout) clearTimeout(this._scrollTimeout);
-        this._scrollTimeout = setTimeout(this._scrollEndHandler, DEBOUNCE_RATE);
+        // if (this._scrollTimeout) clearTimeout(this._scrollTimeout);
+        // this._scrollTimeout = setTimeout(this._scrollEndHandler, DEBOUNCE_RATE);
 
-        this._isScheduledAnimationFrame = false;
+        // this._isScheduledAnimationFrame = false;
     }
 
     _scrollEndHandler() {

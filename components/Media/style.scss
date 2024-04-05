@@ -1,6 +1,12 @@
 .media {
     width: 100%;
     height: 100%;
+
+    visibility: hidden;
+
+    &.is-active {
+        visibility: visible;
+    }
     
     &::v-deep {
         img {

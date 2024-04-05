@@ -12,5 +12,12 @@ export default {
         pause() {
             this.$refs.video.pause();
         },
+
+        /**
+         * Private
+         */
+        canplayHandler(e) {
+            this.$emit('canplay', e);
+        },
     },
 };

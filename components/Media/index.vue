@@ -1,5 +1,5 @@
 <template>
-    <div class="media">
+    <div class="media" :class="{ 'is-active': isActive }">
 
         <VideoRenderer v-if="isVideo" ref="videoRenderer" :source="data.fields.file.url" />
 

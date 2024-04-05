@@ -8,8 +8,10 @@ export default {
     watch: {
         isActive(isActive) {
             if (isActive) {
-                if (this.$refs.videoRenderer) this.$refs.videoRenderer.play();
-            } else if (this.$refs.videoRenderer) this.$refs.videoRenderer.pause();
+                this.play()
+            } else {
+                this.pause();
+            }
         },
     },
 
