@@ -1,7 +1,14 @@
 <template>
     <div class="video-renderer">
 
-        <video ref="video" class="video" :src="source" muted playsinline></video>
+        <video
+            ref="video"
+            class="video"
+            :src="source"
+            muted
+            playsinline
+            loop
+        ></video>
 
     </div>
 </template>
