@@ -102,11 +102,15 @@
     }
 
     &:nth-child(3) {
+        display: none;
+
         @include respond-to('small') {
             width: size(1, 1, 'small');
         }   
 
         @include respond-to('medium') {
+            display: inline-block;
+
             width: size(5, 5, 'medium');
         }
 
@@ -121,7 +125,7 @@
 
     &:nth-child(4) {
         @include respond-to('small') {
-            width: size(1, 0, 'small');
+            width: size(2, 1, 'small');
 
             text-align: right;
         }
@@ -295,11 +299,15 @@
     }
 
     &:nth-child(2) {
+        display: none;
+
         @include respond-to('small') {
             width: size(1, 1, 'small');
         }
-
+        
         @include respond-to('medium') {
+            display: block;
+
             width: size(5, 5, 'medium');
         }
 
@@ -313,12 +321,8 @@
     }
 
     &:nth-child(3) {
-        display: none;
-        
         @include respond-to('small') {
-            display: block;
-
-            width: size(1, 0, 'small');
+            width: size(2, 1, 'small');
 
             text-align: right;
         }

@@ -9,10 +9,10 @@ export default {
 
     recognitions: {
         labels: [
-            'Type',
-            'Recognition',
-            'Project',
-            'Year',
+            'Company',
+            'Role',
+            'Department',
+            'Period',
         ],
     },
 
@@ -23,8 +23,8 @@ export default {
     },
 
     contact: {
-        availability: '*',
-        email: 'Mail*',
+        availability: 'Availability',
+        email: 'Mail',
         socials: 'Socials',
     },
 };
