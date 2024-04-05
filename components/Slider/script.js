@@ -1,6 +1,6 @@
 // Vendor
 import { gsap } from 'gsap';
-import { Pane } from 'tweakpane';
+// import { Pane } from 'tweakpane';
 
 // Utils
 import WindowResizeObserver from '@/utils/WindowResizeObserver';

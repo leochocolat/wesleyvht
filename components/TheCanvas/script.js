@@ -1,5 +1,5 @@
 // Vendor
-import { Pane } from 'tweakpane';
+// import { Pane } from 'tweakpane';
 import { gsap } from 'gsap';
 
 // Modules
@@ -105,7 +105,7 @@ export default {
             this.setupEventListeners();
             this.getBounds();
 
-            this.setupDebugger();
+            // this.setupDebugger();
         },
 
         getBounds() {
