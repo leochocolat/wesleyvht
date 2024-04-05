@@ -2,10 +2,8 @@
     display: flex;
 
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    bottom: rem(10px, 'extra-small');
+    left: rem(10px, 'extra-small');
 
     justify-content: center;
     align-items: center;
@@ -24,6 +22,12 @@
     pointer-events: none;
 
     @include respond-to('small') {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;        
+        
         width: rem(67px, 'small');
         height: rem(35px, 'small');
 
