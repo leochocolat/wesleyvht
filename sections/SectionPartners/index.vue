@@ -26,7 +26,6 @@
                         <div class="list-container">
 
                             <div class="list-title heading-6">
-                                <!-- {{ staticCopy.partners.clients }} -->
                                 {{ data.titleList1 || staticCopy.partners.clients }}
                             </div>
 
@@ -50,7 +49,6 @@
                         <div class="list-container">
 
                             <div class="list-title heading-6">
-                                <!-- {{ staticCopy.partners.agencies }} -->
                                 {{ data.titleList2 || staticCopy.partners.agencies }}
                             </div>
 
@@ -60,15 +58,15 @@
 
                                     <a v-if="item.fields.website" class="button list-item-paragraph paragraph-2" :href="item.fields.website" target="_blank" rel="noopener noreferrer">
                                         {{ item.fields.name }}
-                                        <span v-if="item.fields.current" class="label-current footnote">
-                                            {{ staticCopy.partners.current }}
+                                        <span v-if="item.fields.note" class="label-current footnote">
+                                            {{ item.fields.note }}
                                         </span>
                                     </a>
 
                                     <span v-else class="list-item-paragraph paragraph-2">
                                         {{ item.fields.name }}
-                                        <span v-if="item.fields.current" class="label-current footnote">
-                                            {{ staticCopy.partners.current }}
+                                        <span v-if="item.fields.note" class="label-current footnote">
+                                            {{ item.fields.note }}
                                         </span>
                                     </span>
 
