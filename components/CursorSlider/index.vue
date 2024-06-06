@@ -2,7 +2,7 @@
     <div class="cursor-slider">
         <div ref="background" class="background"></div>
         <div ref="text" class="text">
-            {{ index + 1 }} of {{ length }}
+            {{ indexString }}
         </div>
     </div>
 </template>
