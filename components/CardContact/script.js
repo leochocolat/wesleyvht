@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 
 // Utils
 import device from '@/utils/device';
+import SoundManager from '@/utils/SoundManager';
 
 // Mixons
 import utils from '@/mixins/utils';
@@ -59,6 +60,10 @@ export default {
 
     mounted() {
         this.mousePosition = { x: 0, y: 0 };
+
+        SoundManager.loadSound(this.data.sound.fields.file.url).then((buffer) => {
+            this.sound = buffer;
+        });
 
         this.getBounds();
         this.setupEventListeners();
@@ -121,6 +126,8 @@ export default {
             clearInterval(this.particleInterval);
 
             this.$root.canvas.createParticles({ x: e.clientX, y: e.clientY }, { size: this.particleBounds.width, opacity: 1 });
+
+            if (this.sound) SoundManager.playEffect(this.sound);
 
             if (this.isCopied) return;
 
