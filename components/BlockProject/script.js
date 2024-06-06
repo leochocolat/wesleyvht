@@ -60,7 +60,7 @@ export default {
                 ],
             };
 
-            items.push(liveProject);
+            if (this.data.url) items.push(liveProject);
 
             return items;
         },
