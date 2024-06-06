@@ -26,7 +26,8 @@
                         <div class="list-container">
 
                             <div class="list-title heading-6">
-                                {{ staticCopy.partners.clients }}
+                                <!-- {{ staticCopy.partners.clients }} -->
+                                {{ data.titleList1 || staticCopy.partners.clients }}
                             </div>
 
                             <ul class="list clients">
@@ -49,7 +50,8 @@
                         <div class="list-container">
 
                             <div class="list-title heading-6">
-                                {{ staticCopy.partners.agencies }}
+                                <!-- {{ staticCopy.partners.agencies }} -->
+                                {{ data.titleList2 || staticCopy.partners.agencies }}
                             </div>
 
                             <ul class="list">
