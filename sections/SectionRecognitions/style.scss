@@ -1,18 +1,18 @@
 .section-recognition {
     padding-bottom: rem(50px, 'extra-small');
-    
+
     @include respond-to('small') {
         padding-bottom: rem(60px, 'small');
     }
-    
+
     @include respond-to('medium') {
         padding-bottom: rem(60px, 'medium');
     }
-    
+
     @include respond-to('large') {
         padding-bottom: rem(60px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         padding-bottom: rem(80px, 'extra-large');
     }
@@ -24,15 +24,15 @@
     @include respond-to('small') {
         margin-bottom: rem(50px, 'small');
     }
-    
+
     @include respond-to('medium') {
         margin-bottom: rem(50px, 'medium');
     }
-    
+
     @include respond-to('large') {
         margin-bottom: rem(50px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         margin-bottom: rem(60px, 'extra-large');
     }
@@ -48,15 +48,15 @@
 
         padding-bottom: rem(12px, 'small');
     }
-    
+
     @include respond-to('medium') {
         padding-bottom: rem(12px, 'medium');
     }
-    
+
     @include respond-to('large') {
         padding-bottom: rem(20px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         padding-bottom: rem(20px, 'extra-large');
     }
@@ -65,19 +65,19 @@
 .label {
     color: $color-grey;
 
-    &:nth-child(1) {        
+    &:nth-child(1) {
         @include respond-to('small') {
             width: size(2, 2, 'small');
         }
-        
+
         @include respond-to('medium') {
             width: size(3, 3, 'medium');
         }
-        
+
         @include respond-to('large') {
             width: size(6, 6, 'large');
         }
-        
+
         @include respond-to('extra-large') {
             width: size(6, 6, 'extra-large');
         }
@@ -106,7 +106,7 @@
 
         @include respond-to('small') {
             width: size(1, 1, 'small');
-        }   
+        }
 
         @include respond-to('medium') {
             display: inline-block;
@@ -158,17 +158,21 @@
 
         margin-bottom: rem(40px, 'small');
     }
-    
+
     @include respond-to('medium') {
         margin-bottom: rem(60px, 'medium');
-    }   
-    
+    }
+
     @include respond-to('large') {
         margin-bottom: rem(60px, 'large');
     }
-    
+
     @include respond-to('extra-large') {
         margin-bottom: rem(60px, 'extra-large');
+    }
+
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -304,7 +308,7 @@
         @include respond-to('small') {
             width: size(1, 1, 'small');
         }
-        
+
         @include respond-to('medium') {
             display: block;
 
@@ -342,4 +346,3 @@
         }
     }
 }
-
