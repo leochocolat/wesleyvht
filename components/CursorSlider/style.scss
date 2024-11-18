@@ -28,7 +28,7 @@
         bottom: 0;
         left: 0;        
         
-        width: rem(48px, 'small');
+        width: rem(49px, 'small');
         height: rem(35px, 'small');
 
         font-size: rem(14px, 'small');
@@ -36,7 +36,7 @@
     }
 
     @include respond-to('medium') {
-        width: rem(48px, 'medium');
+        width: rem(49px, 'medium');
         height: rem(35px, 'medium');
 
         font-size: rem(14px, 'medium');
@@ -44,7 +44,7 @@
     }
 
     @include respond-to('large') {
-        width: rem(48px, 'large');
+        width: rem(49px, 'large');
         height: rem(35px, 'large');
 
         font-size: rem(14px, 'large');
@@ -52,7 +52,7 @@
     }
 
     @include respond-to('extra-large') {
-        width: rem(48px, 'extra-large');
+        width: rem(49px, 'extra-large');
         height: rem(35px, 'extra-large');
 
         font-size: rem(12px, 'extra-large');
